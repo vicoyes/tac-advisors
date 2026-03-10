@@ -32,7 +32,7 @@ const faviconPath = `${baseUrl}favicon.svg`;
     />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen flex flex-col bg-white text-gray-800" data-base-url={baseUrl}>
+  <body class="min-h-screen flex flex-col bg-white text-gray-800">
     <Header />
     <main class="flex-1">
       <slot />
@@ -56,22 +56,6 @@ const faviconPath = `${baseUrl}favicon.svg`;
         observer.observe(el);
       });
 
-      // GitHub Pages sirve el sitio bajo /tac-advisors/, así que
-      // reescribimos enlaces raíz para mantener la navegación interna.
-      const baseUrl = document.body.dataset.baseUrl || '/';
-      const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-
-      document.querySelectorAll('a[href^="/"], link[href^="/"]').forEach((el) => {
-        const attr = el.tagName === 'LINK' ? 'href' : 'href';
-        const current = el.getAttribute(attr);
-
-        if (!current || current.startsWith('//')) {
-          return;
-        }
-
-        const nextPath = current === '/' ? normalizedBase : `${normalizedBase}${current.slice(1)}`;
-        el.setAttribute(attr, nextPath);
-      });
     </script>
   </body>
 </html>
