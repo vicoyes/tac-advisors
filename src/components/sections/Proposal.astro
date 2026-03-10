@@ -1,59 +1,43 @@
 ---
-/**
- * Proposal.astro
- * Sección 3: "El Motor de Inteligencia Operativa"
- * Tres features con imágenes + iconos + copy.
- * Fondo gris claro, tarjetas técnicas.
- */
-import { Scan, BrainCircuit, ShieldCheck, ArrowRight } from 'lucide-astro';
+import { Eye, BrainCircuit, ShieldCheck, ArrowRight } from 'lucide-astro';
 import { withBase } from '../../utils/paths';
 
-// URLs de imágenes: uso de Unsplash con fallback a placehold.co si fallan
 const features = [
   {
-    icon: Scan,
-    title: 'Visibilidad Radical',
-    description: 'Conectamos su ecosistema completo (ERP, Bancos, CRM) para eliminar puntos ciegos. Información consolidada, no solo acumulada.',
+    icon: Eye,
+    title: 'Visión más clara del negocio',
+    description: 'Integramos información financiera y operativa para reducir puntos ciegos, mejorar la lectura del negocio y facilitar decisiones más informadas.',
     accent: 'primary' as const,
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop&q=80',
-    imageFallback: 'https://placehold.co/600x340/f0f0f0/666666?text=Dashboard+Data',
-    imageAlt: 'Dashboard de datos financieros consolidados en tiempo real',
+    imageAlt: 'Dashboard con métricas financieras integradas',
   },
   {
     icon: BrainCircuit,
-    title: 'Precisión Predictiva',
-    description: 'Nuestros algoritmos de IA identifican patrones de fuga y oportunidades de optimización fiscal antes de que se conviertan en problemas.',
+    title: 'Análisis con apoyo tecnológico',
+    description: 'Utilizamos tecnología e inteligencia artificial como apoyo para detectar patrones, oportunidades de mejora y señales de riesgo que merecen atención.',
     accent: 'accent' as const,
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=340&fit=crop&q=80',
-    imageFallback: 'https://placehold.co/600x340/e8f5e9/2e7d32?text=IA+Predictiva',
-    imageAlt: 'Inteligencia artificial y análisis predictivo de datos',
+    imageAlt: 'Inteligencia artificial aplicada al análisis financiero',
   },
   {
     icon: ShieldCheck,
-    title: 'Soberanía de Datos',
-    description: 'Usted recupera el control total de su información financiera con protocolos de seguridad nivel bancario y reportes listos para el C-Suite.',
+    title: 'Control y criterio para decidir',
+    description: 'Convertimos la información en insumos más claros para la dirección de la empresa, con un enfoque en control, orden y toma de decisiones.',
     accent: 'primary' as const,
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=340&fit=crop&q=80',
-    imageFallback: 'https://placehold.co/600x340/e3f2fd/1565c0?text=Seguridad',
-    imageAlt: 'Seguridad de datos con protocolos de encriptación avanzados',
+    imageAlt: 'Control financiero con procesos organizados',
   },
 ];
 
 const accentStyles = {
   primary: {
-    bg: 'bg-primary/10',
-    icon: 'text-primary',
     border: 'hover:border-primary',
     shadow: 'hover:shadow-[0_12px_24px_rgba(0,71,171,0.15)]',
-    top: 'before:bg-primary',
     badge: 'bg-primary text-white',
   },
   accent: {
-    bg: 'bg-accent/10',
-    icon: 'text-accent',
     border: 'hover:border-accent',
     shadow: 'hover:shadow-[0_12px_24px_rgba(0,212,170,0.15)]',
-    top: 'before:bg-accent',
     badge: 'bg-accent text-white',
   },
 };
@@ -62,24 +46,21 @@ const solucionesHref = withBase('soluciones/');
 ---
 <section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Header -->
     <div
-      class="max-w-3xl mx-auto text-center mb-16
-             animate-fade-in opacity-0"
+      class="max-w-3xl mx-auto text-center mb-16 animate-fade-in opacity-0"
       data-animate
     >
       <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
-        Nuestra Propuesta
+        Propuesta de Valor
       </p>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-        Infraestructura de Élite para
-        <span class="text-accent">Decisiones de Alto Impacto</span>
+      <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+        Una nueva forma de fortalecer la
+        <span class="text-accent">gestión financiera</span> de su empresa
       </h2>
     </div>
 
-    <!-- Feature cards con imágenes -->
     <div class="grid md:grid-cols-3 gap-8">
-      {features.map(({ icon: Icon, title, description, accent, image, imageFallback, imageAlt }, i) => {
+      {features.map(({ icon: Icon, title, description, accent, image, imageAlt }, i) => {
         const styles = accentStyles[accent];
         return (
           <div
@@ -93,19 +74,16 @@ const solucionesHref = withBase('soluciones/');
             style={`animation-delay: ${i * 150 + 100}ms`}
             data-animate
           >
-            {/* Imagen de la feature */}
             <div class="relative h-48 overflow-hidden bg-gray-200">
               <img
                 src={image}
                 alt={imageAlt}
-                data-fallback={imageFallback}
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105 proposal-card-img"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 loading="lazy"
                 width="400"
                 height="192"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-gray-50 via-white/30 to-transparent pointer-events-none" aria-hidden="true" />
-              {/* Badge con icono */}
               <div class:list={[
                 'absolute bottom-3 left-6 w-12 h-12 rounded-xl flex items-center justify-center shadow-md',
                 styles.badge,
@@ -114,7 +92,6 @@ const solucionesHref = withBase('soluciones/');
               </div>
             </div>
 
-            {/* Contenido */}
             <div class="p-6 pt-4">
               <h3 class="text-xl font-bold text-gray-900 mb-3">{title}</h3>
               <p class="text-base text-gray-600 leading-relaxed">{description}</p>
@@ -124,17 +101,11 @@ const solucionesHref = withBase('soluciones/');
       })}
     </div>
 
-    <!-- CTA secundario -->
-    <div
-      class="text-center mt-12
-             animate-fade-in opacity-0"
-      data-animate
-    >
+    <div class="text-center mt-12 animate-fade-in opacity-0" data-animate>
       <a
         href={solucionesHref}
         class="inline-flex items-center gap-2 text-primary font-semibold text-base
-               transition-all duration-300
-               hover:gap-3"
+               transition-all duration-300 hover:gap-3"
       >
         Explorar todas las soluciones
         <ArrowRight size={18} stroke-width={2} />
@@ -142,14 +113,3 @@ const solucionesHref = withBase('soluciones/');
     </div>
   </div>
 </section>
-
-<script>
-  document.querySelectorAll('.proposal-card-img').forEach((img) => {
-    img.addEventListener('error', function () {
-      const fallback = this.getAttribute('data-fallback');
-      if (fallback && this.src !== fallback) {
-        this.src = fallback;
-      }
-    });
-  });
-</script>

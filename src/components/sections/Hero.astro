@@ -1,10 +1,4 @@
 ---
-/**
- * Hero.astro
- * Sección de impacto inmediato — Home page.
- * Balance: 60% técnico / 40% innovador.
- * Narrativa: "Espejo Retrovisor → GPS Predictivo"
- */
 import { ArrowRight, Play } from 'lucide-astro';
 import { withBase } from '../../utils/paths';
 
@@ -12,7 +6,6 @@ const contactoHref = withBase('contacto/');
 const solucionesHref = withBase('soluciones/');
 ---
 <section class="relative py-36 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-  <!-- Decoración diagonal futurista -->
   <div
     class="absolute inset-y-0 right-0 w-1/2
            bg-gradient-to-br from-primary/5 to-accent/5
@@ -20,7 +13,6 @@ const solucionesHref = withBase('soluciones/');
     aria-hidden="true"
   />
 
-  <!-- Grid decorativo sutil -->
   <div
     class="absolute inset-0 opacity-[0.03]"
     style="background-image: radial-gradient(circle, #0047AB 1px, transparent 1px); background-size: 32px 32px;"
@@ -29,14 +21,13 @@ const solucionesHref = withBase('soluciones/');
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Contenido -->
       <div>
         <p
           class="text-sm font-semibold text-accent uppercase tracking-widest mb-4
                  animate-fade-in opacity-0"
           data-animate
         >
-          Inteligencia Financiera
+          TAC ADVISORS
         </p>
 
         <h1
@@ -45,20 +36,30 @@ const solucionesHref = withBase('soluciones/');
           style="animation-delay: 100ms;"
           data-animate
         >
-          Deje de auditar el pasado.
-          <span class="text-primary">Empiece a orquestar el futuro.</span>
+          Deje atrás la contabilidad tradicional.
+          <span class="text-primary">Empiece a decidir con mayor claridad.</span>
         </h1>
 
         <p
-          class="text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 max-w-xl
+          class="text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 max-w-xl
                  animate-fade-in opacity-0"
           style="animation-delay: 200ms;"
           data-animate
         >
-          Transformamos su contabilidad tradicional en una
-          <strong class="text-gray-900">Unidad de Inteligencia Financiera</strong>.
-          Integramos su arquitectura de datos con motores de IA para erradicar el error manual
-          y generar visibilidad predictiva en tiempo real.
+          Ayudamos a empresas a tomar mejores decisiones financieras combinando contabilidad,
+          planeación tributaria, análisis de datos y criterio estratégico, con el apoyo de
+          tecnología e inteligencia artificial.
+        </p>
+
+        <p
+          class="text-base text-gray-500 leading-relaxed mb-8 max-w-xl
+                 animate-fade-in opacity-0"
+          style="animation-delay: 250ms;"
+          data-animate
+        >
+          Transformamos la gestión contable y financiera en una fuente más clara, útil y oportuna
+          de información para reducir errores, mejorar el control y respaldar decisiones de negocio
+          con mayor seguridad.
         </p>
 
         <div
@@ -96,14 +97,12 @@ const solucionesHref = withBase('soluciones/');
         </div>
       </div>
 
-      <!-- Visual: Foto profesional + Dashboard superpuesto -->
       <div
         class="hidden lg:block animate-slide-in-right opacity-0"
         style="animation-delay: 400ms;"
         data-animate
       >
         <div class="relative">
-          <!-- Foto profesional principal -->
           <img
             src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop&q=80"
             alt="Equipo profesional analizando datos financieros en oficina moderna"
@@ -113,7 +112,6 @@ const solucionesHref = withBase('soluciones/');
             height="420"
           />
 
-          <!-- Dashboard flotante superpuesto -->
           <div class="absolute -bottom-8 -left-8 w-72 bg-white border border-gray-200 rounded-xl p-5 shadow-2xl">
             <div class="flex items-center gap-2 mb-3">
               <div class="w-2.5 h-2.5 rounded-full bg-error" />
@@ -123,11 +121,11 @@ const solucionesHref = withBase('soluciones/');
             </div>
             <div class="grid grid-cols-2 gap-2 mb-3">
               <div class="bg-gray-50 rounded-lg p-2.5">
-                <p class="text-[10px] text-gray-500 mb-0.5 font-mono">FLUJO NETO</p>
+                <p class="text-[10px] text-gray-500 mb-0.5 font-mono">CONTROL</p>
                 <p class="text-base font-bold text-primary font-mono">+23.4%</p>
               </div>
               <div class="bg-gray-50 rounded-lg p-2.5">
-                <p class="text-[10px] text-gray-500 mb-0.5 font-mono">AHORRO FISCAL</p>
+                <p class="text-[10px] text-gray-500 mb-0.5 font-mono">EFICIENCIA</p>
                 <p class="text-base font-bold text-accent font-mono">$148M</p>
               </div>
             </div>
@@ -141,7 +139,6 @@ const solucionesHref = withBase('soluciones/');
             </div>
           </div>
 
-          <!-- Badge de precisión flotante -->
           <div
             class="absolute -top-4 -right-4 bg-white border border-gray-200 rounded-lg p-3 shadow-lg
                    flex items-center gap-3 animate-pulse-soft"
@@ -151,7 +148,7 @@ const solucionesHref = withBase('soluciones/');
             </div>
             <div>
               <p class="text-xs font-semibold text-gray-900">Precisión 99.7%</p>
-              <p class="text-[10px] text-gray-500">Predicción Q2 activa</p>
+              <p class="text-[10px] text-gray-500">Reportes verificados</p>
             </div>
           </div>
         </div>

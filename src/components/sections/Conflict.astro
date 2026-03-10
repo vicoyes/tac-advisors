@@ -1,98 +1,79 @@
 ---
-/**
- * Conflict.astro
- * Sección 2: "El Costo de la Inercia Legada"
- * Layout dividido: imagen + contenido del problema.
- * Fondo blanco, enfoque técnico.
- */
 import { AlertTriangle, Clock, FileX, Eye } from 'lucide-astro';
 
 const problemas = [
   {
     icon: Clock,
     title: 'Reportes tardíos',
-    description: 'Estados financieros con 30+ días de retraso. Decisiones basadas en datos muertos.',
+    description: 'Información financiera que llega tarde y reduce la capacidad de decidir a tiempo.',
   },
   {
     icon: FileX,
     title: 'Procesos manuales',
-    description: 'Horas humanas desperdiciadas en conciliaciones que un algoritmo resuelve en segundos.',
+    description: 'Horas valiosas invertidas en tareas repetitivas que pueden optimizarse con mejores procesos y herramientas de apoyo.',
   },
   {
     icon: Eye,
     title: 'Puntos ciegos',
-    description: 'Datos dispersos entre sistemas que nadie consolida. Oportunidades invisibles.',
+    description: 'Información dispersa entre distintas áreas o sistemas que dificulta tener una visión completa del negocio.',
   },
 ];
 ---
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Layout dividido: imagen + copy -->
     <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
-      <!-- Imagen del problema -->
-      <div
-        class="relative animate-slide-in-left opacity-0"
-        data-animate
-      >
+      <div class="relative animate-slide-in-left opacity-0" data-animate>
         <img
           src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=480&fit=crop&q=80"
-          alt="Documentos financieros y calculadora representando contabilidad tradicional"
+          alt="Documentos financieros representando gestión contable tradicional"
           class="rounded-2xl object-cover w-full h-[400px] shadow-lg"
           loading="lazy"
           width="600"
           height="400"
         />
-        <!-- Overlay con dato impactante -->
         <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-100">
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center shrink-0">
               <AlertTriangle size={24} stroke-width={2} class="text-error" />
             </div>
             <div>
-              <p class="text-2xl font-bold text-gray-900 font-mono">30+ días</p>
-              <p class="text-xs text-gray-500">Retraso promedio en reportes financieros tradicionales</p>
+              <p class="text-sm font-semibold text-gray-900">Falta de visibilidad</p>
+              <p class="text-xs text-gray-500">Afecta la rentabilidad y la capacidad de reacción</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Copy -->
-      <div
-        class="animate-fade-in opacity-0"
-        data-animate
-      >
+      <div class="animate-fade-in opacity-0" data-animate>
         <div class="inline-flex items-center gap-2 bg-error/10 text-error px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6">
           <AlertTriangle size={14} stroke-width={2} />
-          El Riesgo de la Contabilidad Histórica
+          Riesgo Identificado
         </div>
 
-        <h2 class="font-display text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-          ¿Está conduciendo su empresa mirando solo
-          <span class="text-primary">el espejo retrovisor?</span>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          El riesgo de una gestión financiera que solo
+          <span class="text-primary">mira hacia atrás</span>
         </h2>
 
-        <p class="text-lg text-gray-600 leading-relaxed mb-8">
-          Tomar decisiones hoy con estados financieros de hace 30 días no es gestión;
-          <strong class="text-gray-900">es una autopsia</strong>. En el mercado actual, la
-          <em>Inercia Legada</em> —procesos manuales, datos dispersos y reportes tardíos—
-          es el principal drenaje de su rentabilidad.
+        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+          Tomar decisiones con información tardía, procesos manuales y datos dispersos limita
+          la capacidad de reacción de cualquier empresa. En un entorno competitivo, la falta de
+          visibilidad y orden financiero no solo retrasa decisiones: también afecta la rentabilidad.
         </p>
 
         <p class="text-lg text-gray-700 leading-relaxed">
-          Usted no necesita más "teneduría de libros". Necesita un
-          <strong class="text-accent font-semibold">GPS Predictivo</strong> que le indique
-          dónde estará su flujo de caja antes de que termine el trimestre.
+          Usted no necesita más carga operativa. Necesita una gestión financiera
+          <strong class="text-accent">más clara, más integrada y más útil</strong>
+          para anticiparse mejor a lo que viene.
         </p>
       </div>
     </div>
 
-    <!-- Cards de problemas -->
     <div class="grid md:grid-cols-3 gap-8">
       {problemas.map(({ icon: Icon, title, description }, i) => (
         <div
           class="bg-white border border-gray-200 rounded-lg p-6
-                 shadow-sm
-                 transition-all duration-300 ease-in-out
+                 shadow-sm transition-all duration-300 ease-in-out
                  hover:border-error/40 hover:shadow-lg hover:-translate-y-0.5
                  animate-fade-in opacity-0"
           style={`animation-delay: ${i * 100 + 200}ms`}

@@ -1,20 +1,14 @@
 ---
-/**
- * TrustBand.astro
- * Banda de confianza con métricas y foto de fondo.
- * Refuerza credibilidad con números concretos.
- */
 import { TrendingUp, Users, Shield, Award } from 'lucide-astro';
 
 const metrics = [
   { icon: TrendingUp, value: '+$2.4B', label: 'En activos gestionados', color: 'text-accent' },
-  { icon: Users, value: '120+', label: 'Empresas transformadas', color: 'text-white' },
+  { icon: Users, value: '120+', label: 'Empresas acompañadas', color: 'text-white' },
   { icon: Shield, value: '99.7%', label: 'Precisión en reportes', color: 'text-accent' },
   { icon: Award, value: '15+', label: 'Años de experiencia', color: 'text-white' },
 ];
 ---
 <section class="relative py-20 overflow-hidden">
-  <!-- Imagen de fondo -->
   <img
     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=500&fit=crop&q=80"
     alt=""
@@ -22,22 +16,21 @@ const metrics = [
     loading="lazy"
     aria-hidden="true"
   />
-  <!-- Overlay oscuro -->
   <div class="absolute inset-0 bg-gray-900/85" aria-hidden="true" />
-  <!-- Gradiente de acento -->
   <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10" aria-hidden="true" />
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
-    <div
-      class="text-center mb-12 animate-fade-in opacity-0"
-      data-animate
-    >
+    <div class="text-center mb-12 animate-fade-in opacity-0" data-animate>
       <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-3">
-        Resultados que Hablan
+        Resultados
       </p>
       <h2 class="font-display text-3xl lg:text-4xl font-bold text-white">
-        Números que Respaldan Nuestra Metodología
+        Resultados que respaldan nuestra metodología
       </h2>
+      <p class="text-base text-gray-400 mt-3 max-w-2xl mx-auto">
+        Más que entregar reportes, trabajamos para que la información financiera sirva como base
+        real para mejorar el control, reducir fricciones y tomar decisiones con mayor criterio.
+      </p>
     </div>
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
