@@ -1,18 +1,12 @@
 ---
-/**
- * MetodoCTA.astro
- * CTA final de la página Metodología.
- * Demo técnica del método.
- */
-import { Play, ArrowRight } from 'lucide-astro';
+import { ArrowRight, Sparkles } from 'lucide-astro';
 import { withBase } from '../../utils/paths';
 
 const contactoHref = withBase('contacto/');
 ---
 <section class="relative py-20 overflow-hidden">
-  <!-- Imagen de fondo -->
   <img
-    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&h=500&fit=crop&q=80"
+    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=600&fit=crop&q=80"
     alt=""
     class="absolute inset-0 w-full h-full object-cover"
     loading="lazy"
@@ -21,25 +15,22 @@ const contactoHref = withBase('contacto/');
   <div class="absolute inset-0 bg-gray-900/90" aria-hidden="true" />
   <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10" aria-hidden="true" />
 
-  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
-    <div
-      class="animate-fade-in opacity-0"
-      data-animate
-    >
-      <!-- Icono de play -->
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 border border-accent/20 mb-8
-                  transition-all duration-300 hover:bg-accent/20 hover:scale-105 cursor-pointer">
-        <Play size={32} stroke-width={1.5} class="text-accent ml-1" />
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <div class="animate-fade-in opacity-0" data-animate>
+      <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent
+                  px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6">
+        <Sparkles size={14} stroke-width={2} />
+        Siguiente Paso
       </div>
 
       <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight mb-6">
-        Conozca nuestra infraestructura
-        <span class="text-accent">en acción</span>
+        Conozca cómo podemos ayudarle a
+        <span class="text-accent">ordenar y fortalecer</span> la gestión financiera de su empresa
       </h2>
 
-      <p class="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl mx-auto">
-        Agende una demo técnica personalizada y vea cómo nuestro Stack Tecnológico
-        transforma datos crudos en decisiones estratégicas.
+      <p class="text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Agende una consulta gratuita y conversemos sobre su situación actual,
+        sus retos y las oportunidades de mejora que podemos identificar.
       </p>
 
       <a
@@ -53,9 +44,24 @@ const contactoHref = withBase('contacto/');
                hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]
                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
-        Demo Técnica Gratuita del Método
+        Agendar consulta gratuita
         <ArrowRight size={20} stroke-width={2} />
       </a>
     </div>
+  </div>
+</section>
+
+<!-- CTA Secundario / Cierre -->
+<section class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-6 text-center animate-fade-in opacity-0" data-animate>
+    <h3 class="font-display text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+      TAC ADVISORS
+    </h3>
+    <p class="text-lg text-gray-600 leading-relaxed mb-2">
+      Soluciones contables, financieras y tributarias con visión estratégica.
+    </p>
+    <p class="text-base text-primary font-semibold">
+      Ayudamos a transformar información en decisiones.
+    </p>
   </div>
 </section>

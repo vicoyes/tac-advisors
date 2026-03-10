@@ -1,0 +1,85 @@
+---
+import { BarChart3, Shield, Settings, Brain } from 'lucide-astro';
+
+const soluciones = [
+  {
+    icon: BarChart3,
+    color: 'primary',
+    titulo: 'Asesoría financiera',
+    descripcion: 'Analizamos la situación de su empresa para ayudarle a tomar decisiones con mayor seguridad, orden y perspectiva.',
+    imagen: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&h=280&fit=crop&q=80',
+    imgAlt: 'Análisis financiero estratégico en oficina',
+  },
+  {
+    icon: Shield,
+    color: 'accent',
+    titulo: 'Planeación tributaria',
+    descripcion: 'Diseñamos estrategias alineadas con la normativa vigente para optimizar su carga fiscal y reducir contingencias.',
+    imagen: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=480&h=280&fit=crop&q=80',
+    imgAlt: 'Documentos de planeación tributaria',
+  },
+  {
+    icon: Settings,
+    color: 'primary',
+    titulo: 'Automatización contable',
+    descripcion: 'Mejoramos procesos para reducir tareas manuales, ordenar la información y ganar eficiencia operativa.',
+    imagen: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&h=280&fit=crop&q=80',
+    imgAlt: 'Tecnología y automatización de procesos',
+  },
+  {
+    icon: Brain,
+    color: 'accent',
+    titulo: 'Inteligencia de datos',
+    descripcion: 'Utilizamos herramientas de análisis e inteligencia artificial para interpretar información financiera, detectar patrones y facilitar la toma de decisiones.',
+    imagen: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=480&h=280&fit=crop&q=80',
+    imgAlt: 'Dashboard con datos analíticos e inteligencia artificial',
+  },
+];
+---
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-14 animate-fade-in opacity-0" data-animate>
+      <div class="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+        Qué Hacemos
+      </div>
+      <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+        Soluciones financieras con <span class="text-primary">enfoque estratégico</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {soluciones.map((s, i) => (
+        <div
+          class="group bg-white border border-gray-200 rounded-xl overflow-hidden
+                 transition-all duration-300 hover:border-primary/30 hover:shadow-lg
+                 animate-fade-in opacity-0"
+          style={`animation-delay: ${i * 100}ms;`}
+          data-animate
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src={s.imagen}
+              alt={s.imgAlt}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              width="480"
+              height="280"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent" aria-hidden="true" />
+            <div class:list={[
+              'absolute top-4 left-4 w-11 h-11 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-md',
+              s.color === 'accent' ? 'bg-accent/90 text-white' : 'bg-primary/90 text-white'
+            ]}>
+              <s.icon size={22} stroke-width={1.5} />
+            </div>
+          </div>
+
+          <div class="p-6 pt-3">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{s.titulo}</h3>
+            <p class="text-base text-gray-600 leading-relaxed">{s.descripcion}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

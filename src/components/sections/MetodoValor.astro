@@ -1,0 +1,66 @@
+---
+import { Eye, Settings, Search, Users } from 'lucide-astro';
+
+const beneficios = [
+  {
+    icon: Eye,
+    texto: 'Mayor claridad sobre la situación financiera del negocio',
+  },
+  {
+    icon: Settings,
+    texto: 'Menos fricción en procesos contables y administrativos',
+  },
+  {
+    icon: Search,
+    texto: 'Mejor capacidad para identificar riesgos y oportunidades',
+  },
+  {
+    icon: Users,
+    texto: 'Acompañamiento estratégico para decisiones más informadas',
+  },
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Contenido -->
+      <div class="animate-fade-in opacity-0" data-animate>
+        <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+          Propuesta de Valor
+        </div>
+
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          Más que reportes: una visión financiera
+          <span class="text-primary">más clara para su empresa</span>
+        </h2>
+
+        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+          Muchas empresas operan con información fragmentada, procesos manuales y reportes que llegan tarde.
+          Eso dificulta anticiparse, controlar mejor los recursos y tomar decisiones con confianza.
+        </p>
+
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          En TAC ADVISORS trabajamos para que su información financiera deje de ser solo un requisito
+          operativo y se convierta en una <strong class="text-gray-900">herramienta real de gestión</strong>.
+        </p>
+      </div>
+
+      <!-- Beneficios -->
+      <div class="space-y-5 animate-slide-in-right opacity-0" data-animate>
+        {beneficios.map((b, i) => (
+          <div
+            class="flex items-start gap-4 bg-gray-50 border border-gray-100 rounded-xl p-5
+                   transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <b.icon size={22} stroke-width={1.5} class="text-primary" />
+            </div>
+            <p class="text-base text-gray-700 font-medium leading-relaxed pt-2.5">
+              {b.texto}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

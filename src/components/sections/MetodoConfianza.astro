@@ -1,0 +1,67 @@
+---
+import { ShieldCheck, Target, Eye } from 'lucide-astro';
+
+const pilares = [
+  {
+    icon: ShieldCheck,
+    titulo: 'Confidencialidad',
+    desc: 'Su información financiera siempre protegida con los más altos estándares.',
+  },
+  {
+    icon: Target,
+    titulo: 'Precisión',
+    desc: 'Procesos organizados y revisión profesional en cada entregable.',
+  },
+  {
+    icon: Eye,
+    titulo: 'Criterio',
+    desc: 'Metodología orientada a generar valor real, no solo entregables.',
+  },
+];
+---
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center mb-14 animate-fade-in opacity-0" data-animate>
+      <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+        Compromiso
+      </div>
+      <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+        Un servicio serio, claro y
+        <span class="text-primary">enfocado en resultados</span>
+      </h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Sabemos que la información financiera de una empresa exige confidencialidad, precisión y criterio.
+        Por eso trabajamos con procesos organizados, revisión profesional y una metodología orientada a generar valor real.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+      {pilares.map((p, i) => (
+        <div
+          class="group text-center bg-white border border-gray-200 rounded-xl p-8
+                 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:-translate-y-1
+                 animate-fade-in opacity-0"
+          style={`animation-delay: ${i * 100}ms;`}
+          data-animate
+        >
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5
+                      transition-transform duration-300 group-hover:scale-110">
+            <p.icon size={28} stroke-width={1.5} class="text-primary" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{p.titulo}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="max-w-2xl mx-auto text-center animate-fade-in opacity-0" data-animate>
+      <div class="bg-white border border-primary/20 rounded-xl p-6 shadow-sm">
+        <p class="text-base text-gray-700 leading-relaxed font-medium">
+          Nuestro objetivo es que usted tenga <strong class="text-primary">mayor tranquilidad</strong>,
+          <strong class="text-primary">mejor control</strong> y
+          <strong class="text-primary">más claridad</strong> para decidir.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
