@@ -1,22 +1,10 @@
 ---
-/**
- * SolucionesCTA.astro
- * CTA final de la página Soluciones.
- * Diagnóstico integral con imagen de fondo.
- */
-import { Scan, Shield, Target, ArrowRight, Sparkles } from 'lucide-astro';
+import { ArrowRight, MessageSquare, Sparkles } from 'lucide-astro';
 import { withBase } from '../../utils/paths';
-
-const verticales = [
-  { icon: Scan, label: 'Contabilidad & Outsourcing', color: 'bg-primary text-white' },
-  { icon: Shield, label: 'Tributario & Fiscal', color: 'bg-accent text-white' },
-  { icon: Target, label: 'Estrategia & Crecimiento', color: 'bg-primary text-white' },
-];
 
 const contactoHref = withBase('contacto/');
 ---
 <section class="relative py-20 overflow-hidden">
-  <!-- Imagen de fondo -->
   <img
     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=600&fit=crop&q=80"
     alt=""
@@ -28,10 +16,7 @@ const contactoHref = withBase('contacto/');
   <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10" aria-hidden="true" />
 
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <div
-      class="animate-fade-in opacity-0"
-      data-animate
-    >
+    <div class="animate-fade-in opacity-0" data-animate>
       <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent
                   px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6">
         <Sparkles size={14} stroke-width={2} />
@@ -39,42 +24,57 @@ const contactoHref = withBase('contacto/');
       </div>
 
       <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight mb-6">
-        ¿Qué solución requiere su
-        <span class="text-accent">organización hoy</span>?
+        ¿Qué necesita hoy
+        <span class="text-accent">su empresa</span>?
       </h2>
 
       <p class="text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
-        Seleccione el servicio que requiere intervención inmediata o solicite una evaluación
-        integral para identificar áreas de oportunidad en su infraestructura financiera y contable.
+        Cuéntenos qué reto contable, tributario, laboral o financiero desea resolver y
+        le ayudaremos a identificar la solución más adecuada para su organización.
       </p>
 
-      <!-- Verticales como opciones -->
-      <div class="flex flex-wrap justify-center gap-4 mb-10">
-        {verticales.map(({ icon: Icon, label, color }) => (
-          <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-            <div class:list={['w-8 h-8 rounded-lg flex items-center justify-center', color]}>
-              <Icon size={16} stroke-width={2} />
-            </div>
-            <span class="text-sm font-medium text-white">{label}</span>
-          </div>
-        ))}
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={contactoHref}
+          data-booking
+          class="inline-flex items-center justify-center gap-2
+                 bg-gradient-to-br from-accent to-accent-hover
+                 text-white font-semibold text-lg
+                 px-8 py-4 rounded-lg
+                 transition-all duration-300 ease-in-out
+                 hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]"
+        >
+          Solicitar diagnóstico
+          <ArrowRight size={20} stroke-width={2} />
+        </a>
+        <a
+          href={contactoHref}
+          class="inline-flex items-center justify-center gap-2
+                 border border-white/20 text-white font-semibold text-base
+                 px-7 py-3.5 rounded-lg
+                 transition-all duration-300 ease-in-out
+                 hover:bg-white/10 hover:border-white/40"
+        >
+          <MessageSquare size={18} stroke-width={2} />
+          Hablar con un asesor
+        </a>
       </div>
-
-      <!-- CTA principal -->
-      <a
-        href={contactoHref}
-        data-booking
-        class="inline-flex items-center justify-center gap-2
-               bg-gradient-to-br from-accent to-accent-hover
-               text-white font-semibold text-lg
-               px-8 py-4 rounded-lg
-               transition-all duration-300 ease-in-out
-               hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]
-               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-      >
-        Iniciar Diagnóstico de Soluciones
-        <ArrowRight size={20} stroke-width={2} />
-      </a>
     </div>
+  </div>
+</section>
+
+<!-- Cierre de marca -->
+<section class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-6 text-center animate-fade-in opacity-0" data-animate>
+    <h3 class="font-display text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+      TAC ADVISORS
+    </h3>
+    <p class="text-lg text-gray-600 leading-relaxed mb-2">
+      Soluciones contables, tributarias, laborales y financieras con visión estratégica.
+    </p>
+    <p class="text-base text-primary font-semibold">
+      Ayudamos a empresas a tomar mejores decisiones financieras con claridad,
+      criterio profesional y apoyo tecnológico.
+    </p>
   </div>
 </section>

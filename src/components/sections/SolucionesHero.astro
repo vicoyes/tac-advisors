@@ -1,32 +1,21 @@
 ---
-/**
- * SolucionesHero.astro
- * Hero de la página Soluciones.
- * Balance: 75% técnico / 25% innovador.
- */
-import { Layers, ArrowDown } from 'lucide-astro';
+import { ArrowRight, ArrowDown, Briefcase } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
+
+const contactoHref = withBase('contacto/');
 ---
-<section class="relative py-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
-  <!-- Imagen de fondo -->
+<section class="relative py-32 pb-24 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
   <img
     src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&h=600&fit=crop&q=80"
     alt=""
-    class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity"
+    class="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-luminosity"
     loading="eager"
     aria-hidden="true"
   />
 
-  <!-- Grid técnico -->
   <div
     class="absolute inset-0 opacity-10"
-    style="background-image: linear-gradient(rgba(0,212,170,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,170,0.2) 1px, transparent 1px); background-size: 60px 60px;"
-    aria-hidden="true"
-  />
-
-  <!-- Gradiente radial -->
-  <div
-    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]
-           rounded-full bg-primary/10 blur-3xl"
+    style="background-image: linear-gradient(rgba(0,212,170,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,170,0.15) 1px, transparent 1px); background-size: 60px 60px;"
     aria-hidden="true"
   />
 
@@ -38,41 +27,72 @@ import { Layers, ArrowDown } from 'lucide-astro';
                animate-fade-in opacity-0"
         data-animate
       >
-        <Layers size={14} stroke-width={2} />
-        Servicios Contables Integrales
+        <Briefcase size={14} stroke-width={2} />
+        Soluciones TAC ADVISORS
       </div>
 
       <h1
-        class="font-display text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6
+        class="font-display text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-6
                animate-fade-in opacity-0"
         style="animation-delay: 100ms;"
         data-animate
       >
-        Soluciones diseñadas para
-        <span class="text-accent">erradicar la inercia</span>
+        Servicios contables y financieros para empresas que necesitan
+        <span class="text-accent">orden, claridad y crecimiento</span>
       </h1>
 
       <p
-        class="text-lg lg:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto
+        class="text-lg lg:text-xl text-gray-300 leading-relaxed mb-4 max-w-2xl mx-auto
                animate-fade-in opacity-0"
         style="animation-delay: 200ms;"
         data-animate
       >
-        Cada servicio opera como un módulo independiente que puede integrarse a su infraestructura
-        existente. Elija el que necesita o active un ecosistema completo para una transformación integral.
+        Ayudamos a empresas a tomar mejores decisiones financieras combinando contabilidad,
+        planeación tributaria, análisis de datos y criterio estratégico, con el apoyo de
+        tecnología e inteligencia artificial.
       </p>
 
-      <a
-        href="#verticales"
-        class="inline-flex items-center gap-2 text-gray-400 text-sm font-medium
-               transition-colors duration-300 hover:text-accent
+      <p
+        class="text-base text-gray-400 mb-10 max-w-xl mx-auto
+               animate-fade-in opacity-0"
+        style="animation-delay: 250ms;"
+        data-animate
+      >
+        Puede contratar un servicio específico o contar con un acompañamiento integral
+        según las necesidades de su organización.
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-4
                animate-fade-in opacity-0"
         style="animation-delay: 300ms;"
         data-animate
       >
-        Explorar servicios
-        <ArrowDown size={16} stroke-width={2} class="animate-bounce" />
-      </a>
+        <a
+          href="#servicios"
+          class="inline-flex items-center justify-center gap-2
+                 bg-gradient-to-br from-accent to-accent-hover
+                 text-white font-semibold text-base
+                 px-7 py-3.5 rounded-lg
+                 transition-all duration-300 ease-in-out
+                 hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]"
+        >
+          Explorar servicios
+          <ArrowDown size={18} stroke-width={2} />
+        </a>
+        <a
+          href={contactoHref}
+          data-booking
+          class="inline-flex items-center justify-center gap-2
+                 border border-white/20 text-white font-semibold text-base
+                 px-7 py-3.5 rounded-lg
+                 transition-all duration-300 ease-in-out
+                 hover:bg-white/10 hover:border-white/40"
+        >
+          Solicitar diagnóstico
+          <ArrowRight size={18} stroke-width={2} />
+        </a>
+      </div>
     </div>
   </div>
 </section>

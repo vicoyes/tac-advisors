@@ -1,0 +1,45 @@
+---
+import { FolderSync, ShieldCheck, Settings, Eye, Users } from 'lucide-astro';
+
+const perfiles = [
+  { icon: FolderSync, texto: 'Desean ordenar su gestión contable y financiera' },
+  { icon: ShieldCheck, texto: 'Necesitan cumplir mejor con sus obligaciones' },
+  { icon: Settings, texto: 'Buscan reducir errores y mejorar procesos' },
+  { icon: Eye, texto: 'Quieren tomar decisiones con información más clara' },
+  { icon: Users, texto: 'Valoran el acompañamiento de un equipo profesional' },
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center mb-14 animate-fade-in opacity-0" data-animate>
+      <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+        Para Quién Es
+      </div>
+      <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+        Servicios pensados para empresas que necesitan
+        <span class="text-primary">más control y mejor información</span>
+      </h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Trabajamos con organizaciones que:
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+      {perfiles.map((p, i) => (
+        <div
+          class="group bg-gray-50 border border-gray-200 rounded-xl p-5 text-center
+                 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:-translate-y-1
+                 animate-fade-in opacity-0"
+          style={`animation-delay: ${i * 80}ms;`}
+          data-animate
+        >
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3
+                      transition-transform duration-300 group-hover:scale-110">
+            <p.icon size={22} stroke-width={1.5} class="text-primary" />
+          </div>
+          <p class="text-sm text-gray-700 font-medium leading-relaxed">{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

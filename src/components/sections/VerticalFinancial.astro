@@ -1,110 +1,64 @@
 ---
-/**
- * VerticalFinancial.astro
- * Vertical 1: Financial Intelligence Engine.
- * Contabilidad Predictiva con layout imagen + contenido.
- */
-import { BarChart3, Bot, TrendingUp, ArrowRight } from 'lucide-astro';
+import { BarChart3, FileCheck, AlertTriangle, ShieldCheck, ArrowRight } from 'lucide-astro';
 import { withBase } from '../../utils/paths';
 
-const puntos = [
-  {
-    icon: BarChart3,
-    title: 'Consolidación Automatizada',
-    description: 'Integración total con su ERP y arquitectura bancaria.',
-  },
-  {
-    icon: Bot,
-    title: 'Auditoría de Errores IA',
-    description: 'Detección de anomalías y duplicados antes de la conciliación.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Proyecciones de Cashflow',
-    description: 'Modelos financieros dinámicos basados en patrones históricos reales.',
-  },
+const beneficios = [
+  { icon: FileCheck, texto: 'Información contable organizada y confiable' },
+  { icon: BarChart3, texto: 'Mayor control sobre la operación financiera' },
+  { icon: AlertTriangle, texto: 'Identificación temprana de inconsistencias y riesgos' },
+  { icon: ShieldCheck, texto: 'Mejor soporte para decisiones gerenciales' },
 ];
 
 const contactoHref = withBase('contacto/');
 ---
-<section id="verticales" class="py-20 bg-white scroll-mt-20">
+<section id="verticales" class="py-20 bg-gray-50 scroll-mt-20">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Imagen -->
-      <div
-        class="relative animate-slide-in-left opacity-0"
-        data-animate
-      >
+      <div class="relative animate-slide-in-left opacity-0" data-animate>
         <img
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=480&fit=crop&q=80"
-          alt="Dashboard ejecutivo con métricas financieras en tiempo real"
+          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=640&h=480&fit=crop&q=80"
+          alt="Profesional revisando información contable estratégica"
           class="rounded-2xl object-cover w-full h-[420px] shadow-xl"
           loading="lazy"
           width="640"
           height="480"
         />
-
-        <!-- Badge flotante de métricas -->
-        <div class="absolute -bottom-6 -right-6 bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <TrendingUp size={20} stroke-width={2} class="text-primary" />
-            </div>
-            <div>
-              <p class="text-xs text-gray-500 font-mono">LATENCIA</p>
-              <p class="text-lg font-bold text-primary font-mono">Tiempo real</p>
-            </div>
-          </div>
+        <div class="absolute -bottom-5 -right-5 bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
+          <p class="text-xs text-gray-500 font-mono uppercase tracking-wider">Enfoque</p>
+          <p class="text-lg font-bold text-primary font-mono">Claridad financiera</p>
         </div>
       </div>
 
-      <!-- Contenido -->
-      <div
-        class="animate-fade-in opacity-0"
-        data-animate
-      >
+      <div class="animate-fade-in opacity-0" data-animate>
         <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
-          Visibilidad Radical
+          Contabilidad Estratégica
         </div>
 
         <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
-          Contabilidad Predictiva:
-          <span class="text-primary">Del Cumplimiento a la Estrategia</span>
+          Más que registros, una base para
+          <span class="text-primary">decidir mejor</span>
         </h2>
 
-        <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          Su contabilidad ya no debe ser un costo fijo, sino un generador de insights.
-          Nuestro motor predictivo transforma el registro histórico en un
-          <strong class="text-gray-900">Dashboard Ejecutivo</strong> de alta precisión.
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          La contabilidad no debe limitarse al cumplimiento. Cuando la información está bien organizada
+          y correctamente interpretada, se convierte en una herramienta clave para entender la realidad
+          del negocio, anticipar riesgos y tomar decisiones con mayor claridad.
         </p>
 
-        <div class="bg-gray-50 border-l-4 border-accent rounded-r-lg p-4 mb-8">
-          <p class="text-sm font-semibold text-accent mb-1">Antídoto a la Inercia Legada</p>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Eliminamos la latencia de datos. Reportes que antes tomaban 15 días, ahora se
-            orquestan en tiempo real, permitiendo una intervención táctica inmediata en su flujo de caja.
-          </p>
-        </div>
-
-        <!-- Puntos clave -->
-        <div class="space-y-4 mb-8">
-          {puntos.map(({ icon: Icon, title, description }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                <Icon size={20} stroke-width={1.5} class="text-primary" />
-              </div>
-              <div>
-                <p class="text-base font-semibold text-gray-900">{title}</p>
-                <p class="text-sm text-gray-600">{description}</p>
-              </div>
+        <div class="space-y-3 mb-8">
+          {beneficios.map((b) => (
+            <div class="flex items-center gap-3 bg-white border border-gray-100 rounded-lg px-4 py-3
+                        transition-all duration-300 hover:border-primary/30 hover:shadow-sm">
+              <b.icon size={20} stroke-width={1.5} class="text-primary shrink-0" />
+              <span class="text-base text-gray-700 font-medium">{b.texto}</span>
             </div>
           ))}
         </div>
 
         <a
           href={contactoHref}
-          class="inline-flex items-center gap-2 text-primary font-semibold text-base
-                 transition-all duration-300 hover:gap-3"
+          data-booking
+          class="inline-flex items-center gap-2 text-primary font-semibold text-base transition-all duration-300 hover:gap-3"
         >
           Solicitar diagnóstico financiero
           <ArrowRight size={18} stroke-width={2} />

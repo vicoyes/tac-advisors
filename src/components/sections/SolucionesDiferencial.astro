@@ -1,0 +1,61 @@
+---
+import { Calculator, Eye, Settings, Brain, Users } from 'lucide-astro';
+
+const enfoques = [
+  { icon: Calculator, texto: 'Rigor contable y tributario' },
+  { icon: Eye, texto: 'Visión financiera y empresarial' },
+  { icon: Settings, texto: 'Mejora de procesos' },
+  { icon: Brain, texto: 'Apoyo en tecnología e inteligencia artificial' },
+  { icon: Users, texto: 'Acompañamiento cercano y profesional' },
+];
+---
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="animate-fade-in opacity-0" data-animate>
+        <div class="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+          Diferencial
+        </div>
+
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          ¿Qué hace diferente
+          <span class="text-accent">nuestro enfoque</span>?
+        </h2>
+
+        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+          No nos limitamos a entregar reportes o resolver una obligación puntual. Trabajamos para
+          que la información financiera de su empresa tenga sentido, orden y utilidad real para
+          la toma de decisiones.
+        </p>
+
+        <p class="text-base text-gray-600 leading-relaxed mb-8">
+          Integramos conocimiento técnico, criterio profesional y apoyo tecnológico para brindar
+          un servicio más claro, más estratégico y más alineado con la realidad del negocio.
+        </p>
+
+        <p class="text-base font-semibold text-gray-800 mb-5">Nuestro enfoque combina:</p>
+
+        <div class="space-y-3">
+          {enfoques.map((e) => (
+            <div class="flex items-center gap-3 bg-white border border-gray-100 rounded-lg px-4 py-3
+                        transition-all duration-300 hover:border-accent/30 hover:bg-accent/5">
+              <e.icon size={20} stroke-width={1.5} class="text-accent shrink-0" />
+              <span class="text-base text-gray-700 font-medium">{e.texto}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="relative animate-slide-in-right opacity-0" data-animate>
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=640&h=480&fit=crop&q=80"
+          alt="Equipo profesional analizando datos estratégicos"
+          class="rounded-2xl object-cover w-full h-[480px] shadow-xl"
+          loading="lazy"
+          width="640"
+          height="480"
+        />
+      </div>
+    </div>
+  </div>
+</section>

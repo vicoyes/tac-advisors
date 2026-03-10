@@ -1,112 +1,66 @@
 ---
-/**
- * VerticalGrowth.astro
- * Vertical 3: Growth Intelligence Advisory.
- * Consultoría de Crecimiento con layout imagen + contenido.
- */
-import { Target, Cpu, Users, ArrowRight } from 'lucide-astro';
+import { TrendingUp, DollarSign, BarChart3, Users, ArrowRight } from 'lucide-astro';
 import { withBase } from '../../utils/paths';
 
-const puntos = [
-  {
-    icon: Target,
-    title: 'Análisis de Rentabilidad por Unidad',
-    description: 'Identificación quirúrgica de los productos o servicios que impulsan su margen.',
-  },
-  {
-    icon: Cpu,
-    title: 'Optimización de Estructura de Costos',
-    description: 'Identificación de eficiencias operativas mediante automatización.',
-  },
-  {
-    icon: Users,
-    title: 'Acompañamiento Estratégico C-Suite',
-    description: 'Soporte directo para juntas directivas y procesos de inversión.',
-  },
+const beneficios = [
+  { icon: TrendingUp, texto: 'Evaluación financiera para nuevos pasos del negocio' },
+  { icon: DollarSign, texto: 'Mejor lectura de costos, márgenes y rentabilidad' },
+  { icon: BarChart3, texto: 'Análisis útil para expansión, inversión y reorganización' },
+  { icon: Users, texto: 'Acompañamiento estratégico en decisiones clave' },
 ];
 
 const contactoHref = withBase('contacto/');
 ---
-<section class="py-20 bg-white">
+<section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Imagen -->
-      <div
-        class="relative animate-slide-in-left opacity-0"
-        data-animate
-      >
+      <div class="relative animate-slide-in-left opacity-0" data-animate>
         <img
-          src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=640&h=480&fit=crop&q=80"
-          alt="Equipo directivo en reunión de estrategia de crecimiento empresarial"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&h=480&fit=crop&q=80"
+          alt="Dashboard con métricas de crecimiento empresarial"
           class="rounded-2xl object-cover w-full h-[420px] shadow-xl"
           loading="lazy"
           width="640"
           height="480"
         />
-
-        <!-- Badge flotante -->
-        <div class="absolute -bottom-6 -right-6 bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Target size={20} stroke-width={2} class="text-primary" />
-            </div>
-            <div>
-              <p class="text-xs text-gray-500 font-mono">ESCALAMIENTO</p>
-              <p class="text-lg font-bold text-primary font-mono">Data-driven</p>
-            </div>
-          </div>
+        <div class="absolute -bottom-5 -right-5 bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
+          <p class="text-xs text-gray-500 font-mono uppercase tracking-wider">Enfoque</p>
+          <p class="text-lg font-bold text-primary font-mono">Crecimiento sólido</p>
         </div>
       </div>
 
-      <!-- Contenido -->
-      <div
-        class="animate-fade-in opacity-0"
-        data-animate
-      >
+      <div class="animate-fade-in opacity-0" data-animate>
         <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
-          Ventaja Competitiva
+          Decisiones de Crecimiento
         </div>
 
         <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
-          Escalamiento Basado en Evidencia,
-          <span class="text-primary">no en Corazonadas</span>
+          Decisiones de crecimiento respaldadas por
+          <span class="text-primary">información</span>
         </h2>
 
-        <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          Toda decisión estratégica de expansión debe estar respaldada por una infraestructura
-          de datos sólida. Nuestra consultoría de élite actúa como su
-          <strong class="text-gray-900">centro de comando táctico</strong> para el escalamiento empresarial.
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          Crecer sin información clara puede generar costos innecesarios y decisiones poco rentables.
+          Nuestro acompañamiento permite analizar escenarios, comprender mejor la rentabilidad y tomar
+          decisiones empresariales con mayor criterio.
         </p>
 
-        <div class="bg-gray-50 border-l-4 border-accent rounded-r-lg p-4 mb-8">
-          <p class="text-sm font-semibold text-accent mb-1">Antídoto a la Inercia Legada</p>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Erradicamos la toma de decisiones basada en intuición fragmentada. Proveemos la
-            claridad necesaria para determinar cuándo y cómo desplegar capital de forma eficiente.
-          </p>
-        </div>
-
-        <!-- Puntos clave -->
-        <div class="space-y-4 mb-8">
-          {puntos.map(({ icon: Icon, title, description }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                <Icon size={20} stroke-width={1.5} class="text-primary" />
-              </div>
-              <div>
-                <p class="text-base font-semibold text-gray-900">{title}</p>
-                <p class="text-sm text-gray-600">{description}</p>
-              </div>
+        <div class="space-y-3 mb-8">
+          {beneficios.map((b) => (
+            <div class="flex items-center gap-3 bg-white border border-gray-100 rounded-lg px-4 py-3
+                        transition-all duration-300 hover:border-primary/30 hover:shadow-sm">
+              <b.icon size={20} stroke-width={1.5} class="text-primary shrink-0" />
+              <span class="text-base text-gray-700 font-medium">{b.texto}</span>
             </div>
           ))}
         </div>
 
         <a
           href={contactoHref}
-          class="inline-flex items-center gap-2 text-primary font-semibold text-base
-                 transition-all duration-300 hover:gap-3"
+          data-booking
+          class="inline-flex items-center gap-2 text-primary font-semibold text-base transition-all duration-300 hover:gap-3"
         >
-          Solicitar diagnóstico de crecimiento
+          Solicitar diagnóstico empresarial
           <ArrowRight size={18} stroke-width={2} />
         </a>
       </div>

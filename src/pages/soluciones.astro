@@ -1,20 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SolucionesHero from '../components/sections/SolucionesHero.astro';
+import SolucionesIntro from '../components/sections/SolucionesIntro.astro';
 import VerticalFinancial from '../components/sections/VerticalFinancial.astro';
 import VerticalTax from '../components/sections/VerticalTax.astro';
 import VerticalGrowth from '../components/sections/VerticalGrowth.astro';
 import ServiciosGrid from '../components/sections/ServiciosGrid.astro';
+import SolucionesDiferencial from '../components/sections/SolucionesDiferencial.astro';
+import SolucionesTecnologia from '../components/sections/SolucionesTecnologia.astro';
+import SolucionesParaQuien from '../components/sections/SolucionesParaQuien.astro';
 import SolucionesCTA from '../components/sections/SolucionesCTA.astro';
 ---
 <BaseLayout
   title="Soluciones — TAC ADVISORS"
-  description="11 servicios especializados de inteligencia financiera y contable. Outsourcing contable, asesoría tributaria, facturación electrónica, NIIF, auditoría y más."
+  description="Servicios contables y financieros para empresas que necesitan orden, claridad y crecimiento. Outsourcing contable, asesoría tributaria, facturación electrónica, NIIF, auditoría y más."
 >
   <SolucionesHero />
+  <SolucionesIntro />
   <VerticalFinancial />
   <VerticalTax />
   <VerticalGrowth />
   <ServiciosGrid />
+  <SolucionesDiferencial />
+  <SolucionesTecnologia />
+  <SolucionesParaQuien />
   <SolucionesCTA />
 </BaseLayout>
