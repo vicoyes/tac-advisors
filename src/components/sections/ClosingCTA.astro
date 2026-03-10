@@ -5,12 +5,15 @@
  * CTA con imagen de consultoría + card de acción.
  */
 import { Calendar, ArrowRight, CheckCircle } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 const beneficios = [
   'Auditoría de eficiencia gratuita',
   'Plan de acción personalizado',
   'Sin compromiso de permanencia',
 ];
+
+const contactoHref = withBase('contacto/');
 ---
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
@@ -96,7 +99,7 @@ const beneficios = [
           </p>
 
             <a
-              href="/contacto"
+              href={contactoHref}
               data-booking
               class="inline-flex items-center justify-center gap-2 w-full max-w-xs mx-auto
                      bg-gradient-to-br from-accent to-accent-hover

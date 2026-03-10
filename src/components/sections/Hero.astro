@@ -6,6 +6,10 @@
  * Narrativa: "Espejo Retrovisor → GPS Predictivo"
  */
 import { ArrowRight, Play } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
+
+const contactoHref = withBase('contacto/');
+const solucionesHref = withBase('soluciones/');
 ---
 <section class="relative py-36 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
   <!-- Decoración diagonal futurista -->
@@ -64,7 +68,7 @@ import { ArrowRight, Play } from 'lucide-astro';
           data-animate
         >
           <a
-            href="/contacto"
+            href={contactoHref}
             data-booking
             class="inline-flex items-center justify-center gap-2
                    bg-gradient-to-br from-accent to-accent-hover
@@ -78,7 +82,7 @@ import { ArrowRight, Play } from 'lucide-astro';
             <ArrowRight size={18} stroke-width={2} />
           </a>
           <a
-            href="/soluciones"
+            href={solucionesHref}
             class="inline-flex items-center justify-center gap-2
                    bg-transparent text-primary font-semibold text-base
                    border-2 border-primary

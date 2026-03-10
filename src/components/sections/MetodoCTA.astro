@@ -5,6 +5,9 @@
  * Demo técnica del método.
  */
 import { Play, ArrowRight } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
+
+const contactoHref = withBase('contacto/');
 ---
 <section class="relative py-20 overflow-hidden">
   <!-- Imagen de fondo -->
@@ -40,7 +43,7 @@ import { Play, ArrowRight } from 'lucide-astro';
       </p>
 
       <a
-        href="/contacto"
+        href={contactoHref}
         data-booking
         class="inline-flex items-center justify-center gap-2
                bg-gradient-to-br from-accent to-accent-hover

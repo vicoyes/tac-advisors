@@ -1,13 +1,16 @@
 ---
 import { Phone } from 'lucide-astro';
+import { normalizeRoute, stripBase, withBase } from '../../utils/paths';
 
 const navLinks = [
-  { href: '/soluciones', label: 'Soluciones' },
-  { href: '/metodologia', label: 'Metodología' },
-  { href: '/recursos', label: 'Recursos' },
+  { href: withBase('soluciones/'), route: '/soluciones', label: 'Soluciones' },
+  { href: withBase('metodologia/'), route: '/metodologia', label: 'Metodología' },
+  { href: withBase('recursos/'), route: '/recursos', label: 'Recursos' },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = normalizeRoute(stripBase(Astro.url.pathname));
+const homeHref = withBase();
+const contactoHref = withBase('contacto/');
 ---
 <header
   class="sticky top-0 z-50
@@ -15,30 +18,30 @@ const currentPath = Astro.url.pathname;
          border-b border-gray-100"
 >
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="text-2xl font-bold text-primary font-display no-underline hover:text-primary">
+    <a href={homeHref} class="text-2xl font-bold text-primary font-display no-underline hover:text-primary">
       TAC ADVISORS
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
-      {navLinks.map(({ href, label }) => (
+      {navLinks.map(({ href, route, label }) => (
         <a
           href={href}
           class:list={[
             'text-sm font-medium transition-colors duration-300 relative group',
-            currentPath === href ? 'text-primary' : 'text-gray-700 hover:text-primary'
+            currentPath === route ? 'text-primary' : 'text-gray-700 hover:text-primary'
           ]}
         >
           {label}
           <span
             class:list={[
               'absolute -bottom-1 left-0 right-0 h-0.5 bg-primary transition-transform duration-300 origin-left',
-              currentPath === href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+              currentPath === route ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
             ]}
           />
         </a>
       ))}
       <a
-        href="/contacto"
+        href={contactoHref}
         data-booking
         class="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-hover
                text-white text-sm font-semibold px-4 py-2 rounded-md
@@ -68,19 +71,19 @@ const currentPath = Astro.url.pathname;
     class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md"
   >
     <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
-      {navLinks.map(({ href, label }) => (
+      {navLinks.map(({ href, route, label }) => (
         <a
           href={href}
           class:list={[
             'text-base font-medium py-2 transition-colors duration-300',
-            currentPath === href ? 'text-primary' : 'text-gray-700 hover:text-primary'
+            currentPath === route ? 'text-primary' : 'text-gray-700 hover:text-primary'
           ]}
         >
           {label}
         </a>
       ))}
       <a
-        href="/contacto"
+        href={contactoHref}
         data-booking
         class="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-hover
                text-white text-sm font-semibold px-4 py-3 rounded-md mt-2

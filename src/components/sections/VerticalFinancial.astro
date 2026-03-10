@@ -5,6 +5,7 @@
  * Contabilidad Predictiva con layout imagen + contenido.
  */
 import { BarChart3, Bot, TrendingUp, ArrowRight } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 const puntos = [
   {
@@ -23,6 +24,8 @@ const puntos = [
     description: 'Modelos financieros dinámicos basados en patrones históricos reales.',
   },
 ];
+
+const contactoHref = withBase('contacto/');
 ---
 <section id="verticales" class="py-20 bg-white scroll-mt-20">
   <div class="max-w-7xl mx-auto px-6">
@@ -99,7 +102,7 @@ const puntos = [
         </div>
 
         <a
-          href="/contacto"
+          href={contactoHref}
           class="inline-flex items-center gap-2 text-primary font-semibold text-base
                  transition-all duration-300 hover:gap-3"
         >

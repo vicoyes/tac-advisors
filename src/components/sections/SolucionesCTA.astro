@@ -5,12 +5,15 @@
  * Diagnóstico integral con imagen de fondo.
  */
 import { Scan, Shield, Target, ArrowRight, Sparkles } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 const verticales = [
   { icon: Scan, label: 'Motor Financiero', color: 'bg-primary text-white' },
   { icon: Shield, label: 'Inteligencia Fiscal', color: 'bg-accent text-white' },
   { icon: Target, label: 'Consultoría de Crecimiento', color: 'bg-primary text-white' },
 ];
+
+const contactoHref = withBase('contacto/');
 ---
 <section class="relative py-20 overflow-hidden">
   <!-- Imagen de fondo -->
@@ -59,7 +62,7 @@ const verticales = [
 
       <!-- CTA principal -->
       <a
-        href="/contacto"
+        href={contactoHref}
         data-booking
         class="inline-flex items-center justify-center gap-2
                bg-gradient-to-br from-accent to-accent-hover

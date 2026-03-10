@@ -6,6 +6,7 @@
  * Fondo gris claro, tarjetas técnicas.
  */
 import { Scan, BrainCircuit, ShieldCheck, ArrowRight } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 // URLs de imágenes: uso de Unsplash con fallback a placehold.co si fallan
 const features = [
@@ -56,6 +57,8 @@ const accentStyles = {
     badge: 'bg-accent text-white',
   },
 };
+
+const solucionesHref = withBase('soluciones/');
 ---
 <section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
@@ -128,7 +131,7 @@ const accentStyles = {
       data-animate
     >
       <a
-        href="/soluciones"
+        href={solucionesHref}
         class="inline-flex items-center gap-2 text-primary font-semibold text-base
                transition-all duration-300
                hover:gap-3"

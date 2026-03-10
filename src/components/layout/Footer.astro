@@ -1,18 +1,21 @@
 ---
 import { Mail, MapPin, Clock, ArrowUpRight } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 const servicios = [
-  { label: 'Asesoría Financiera', href: '/soluciones#asesoria' },
-  { label: 'Planeación Tributaria', href: '/soluciones#tributaria' },
-  { label: 'Automatización Contable', href: '/soluciones#automatizacion' },
-  { label: 'Inteligencia de Datos', href: '/soluciones#datos' },
+  { label: 'Asesoría Financiera', href: withBase('soluciones/#asesoria') },
+  { label: 'Planeación Tributaria', href: withBase('soluciones/#tributaria') },
+  { label: 'Automatización Contable', href: withBase('soluciones/#automatizacion') },
+  { label: 'Inteligencia de Datos', href: withBase('soluciones/#datos') },
 ];
 
 const empresa = [
-  { label: 'Metodología', href: '/metodologia' },
-  { label: 'Recursos', href: '/recursos' },
-  { label: 'Contacto', href: '/contacto' },
+  { label: 'Metodología', href: withBase('metodologia/') },
+  { label: 'Recursos', href: withBase('recursos/') },
+  { label: 'Contacto', href: withBase('contacto/') },
 ];
+
+const contactoHref = withBase('contacto/');
 ---
 <footer class="bg-gray-800 text-white pt-20 pb-8">
   <div class="max-w-7xl mx-auto px-6">
@@ -76,7 +79,7 @@ const empresa = [
           Agende una consulta técnica gratuita y descubra cómo optimizar su operación financiera.
         </p>
         <a
-          href="/contacto"
+          href={contactoHref}
           data-booking
           class="inline-flex items-center justify-center gap-2
                  bg-gradient-to-br from-accent to-accent-hover

@@ -5,6 +5,7 @@
  * Optimización Fiscal Estratégica con layout invertido.
  */
 import { Shield, Scale, Landmark, ArrowRight } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 const puntos = [
   {
@@ -23,6 +24,8 @@ const puntos = [
     description: 'Estructuras financieras diseñadas para la resiliencia a largo plazo.',
   },
 ];
+
+const contactoHref = withBase('contacto/');
 ---
 <section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
@@ -71,7 +74,7 @@ const puntos = [
         </div>
 
         <a
-          href="/contacto"
+          href={contactoHref}
           class="inline-flex items-center gap-2 text-accent font-semibold text-base
                  transition-all duration-300 hover:gap-3"
         >
