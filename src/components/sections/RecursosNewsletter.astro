@@ -1,0 +1,94 @@
+---
+/**
+ * RecursosNewsletter.astro
+ * Sección de newsletter / CTA de suscripción.
+ * Con imagen de fondo y formulario.
+ */
+import { Mail, ArrowRight, Zap } from 'lucide-astro';
+---
+<section class="relative py-20 overflow-hidden">
+  <!-- Imagen de fondo -->
+  <img
+    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=500&fit=crop&q=80"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <div class="absolute inset-0 bg-gray-900/90" aria-hidden="true" />
+  <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10" aria-hidden="true" />
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <div
+      class="animate-fade-in opacity-0"
+      data-animate
+    >
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent/10 mb-6">
+        <Zap size={28} stroke-width={1.5} class="text-accent" />
+      </div>
+
+      <h2 class="font-display text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+        Inteligencia financiera directo a
+        <span class="text-accent">su bandeja</span>
+      </h2>
+
+      <p class="text-base text-gray-300 leading-relaxed mb-8 max-w-xl mx-auto">
+        Reciba análisis exclusivos, tendencias del mercado y guías estratégicas cada semana.
+        Sin spam. Solo contenido que impulsa decisiones.
+      </p>
+
+      <!-- Formulario de suscripción -->
+      <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto mb-4" novalidate>
+        <div class="flex-1 relative">
+          <Mail size={16} class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+          <input
+            type="email"
+            name="newsletter_email"
+            required
+            class="w-full pl-10 pr-4 py-3.5 text-sm text-gray-900
+                   border border-white/20 rounded-lg bg-white
+                   placeholder:text-gray-400
+                   transition-all duration-300
+                   focus:outline-none focus:ring-3 focus:ring-accent/30 focus:border-accent"
+            placeholder="su.email@empresa.co"
+          />
+        </div>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center gap-2
+                 bg-gradient-to-br from-accent to-accent-hover
+                 text-white font-semibold text-sm
+                 px-6 py-3.5 rounded-lg shrink-0
+                 transition-all duration-300 ease-in-out
+                 hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]"
+        >
+          Suscribirse
+          <ArrowRight size={16} stroke-width={2} />
+        </button>
+      </form>
+
+      <p class="text-xs text-gray-500">
+        +2,400 líderes financieros ya reciben nuestro newsletter semanal
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    setTimeout(() => {
+      form.innerHTML = `
+        <div class="text-center py-4">
+          <p class="text-accent font-semibold text-base mb-1">¡Suscripción confirmada!</p>
+          <p class="text-sm text-gray-400">Revise su email para confirmar su suscripción.</p>
+        </div>
+      `;
+    }, 1000);
+  });
+</script>

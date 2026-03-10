@@ -1,0 +1,126 @@
+---
+/**
+ * ContactoInfo.astro
+ * Sección 4-5: Siguiente Paso + Info de Contacto.
+ * Tono: Profesional / Directo.
+ */
+import { Clock, CheckCircle, Mail, Phone as PhoneIcon, MapPin, Calendar } from 'lucide-astro';
+
+const pasos = [
+  'Analizamos su cuestionario en menos de 24 horas',
+  'Identificamos las principales áreas de mejora en su infraestructura actual',
+  'Le presentamos un plan de acción concreto',
+];
+
+const contactInfo = [
+  { icon: Mail, label: 'Email', value: 'contacto@tacadvisors.co', href: 'mailto:contacto@tacadvisors.co' },
+  { icon: PhoneIcon, label: 'Teléfono', value: '+57 XXX XXX XXXX', href: 'tel:+57XXXXXXXXXX' },
+  { icon: MapPin, label: 'Ubicación', value: 'Bogotá, Colombia', href: null },
+  { icon: Clock, label: 'Horario', value: 'Lun – Vie: 8:00 – 18:00 (GMT-5)', href: null },
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- Siguiente Paso -->
+      <div
+        class="animate-fade-in opacity-0"
+        data-animate
+      >
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=360&fit=crop&q=80"
+            alt="Sesión de auditoría financiera con equipo profesional"
+            class="rounded-2xl object-cover w-full h-[280px] shadow-lg mb-8"
+            loading="lazy"
+            width="600"
+            height="360"
+          />
+        </div>
+
+        <div class="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+          <Calendar size={14} stroke-width={2} />
+          Para Candidatos Calificados
+        </div>
+
+        <h3 class="font-display text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-4">
+          Auditoría Financiera
+          <span class="text-accent">(Sesión de 30 Minutos)</span>
+        </h3>
+
+        <p class="text-base text-gray-600 leading-relaxed mb-6">
+          Si su perfil se ajusta a nuestros servicios, lo contactaremos dentro de
+          24 horas para agendar una <strong class="text-gray-900">Auditoría Financiera</strong> gratuita.
+        </p>
+
+        <ul class="space-y-3">
+          {pasos.map((paso) => (
+            <li class="flex items-start gap-3">
+              <CheckCircle size={18} stroke-width={2} class="text-accent shrink-0 mt-0.5" />
+              <span class="text-sm text-gray-700">{paso}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Información de Contacto -->
+      <div
+        class="animate-fade-in opacity-0"
+        style="animation-delay: 200ms;"
+        data-animate
+      >
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 lg:p-10
+                    border border-gray-700 overflow-hidden relative
+                    before:absolute before:inset-x-0 before:top-0 before:h-1
+                    before:bg-gradient-to-r before:from-primary before:to-accent">
+          <!-- Decoración -->
+          <div class="absolute top-0 right-0 w-1/3 h-full opacity-5 bg-gradient-to-bl from-accent to-transparent" aria-hidden="true" />
+
+          <div class="relative z-10">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2 font-mono">
+              Información de Contacto
+            </p>
+            <h3 class="text-2xl font-bold text-white mb-2">
+              Para consultas urgentes o situaciones críticas
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-8">
+              Utilice el cuestionario como primera vía de contacto. Las consultas directas
+              pueden tener tiempos de respuesta más largos.
+            </p>
+
+            <div class="space-y-5">
+              {contactInfo.map(({ icon: Icon, label, value, href }) => (
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                    <Icon size={18} stroke-width={1.5} class="text-accent" />
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 font-mono">{label}</p>
+                    {href ? (
+                      <a href={href} class="text-sm font-medium text-white hover:text-accent transition-colors duration-300">
+                        {value}
+                      </a>
+                    ) : (
+                      <p class="text-sm font-medium text-white">{value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Separador -->
+            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent my-8" />
+
+            <!-- Frase final -->
+            <blockquote class="text-center">
+              <p class="text-sm text-gray-300 italic leading-relaxed">
+                "La optimización financiera comienza aquí."
+              </p>
+              <p class="text-xs text-gray-500 mt-2 font-mono">— TAC ADVISORS</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,323 @@
+---
+/**
+ * BookingModal.astro
+ * Modal de agendamiento de consulta gratuita.
+ * Se activa con data-booking en cualquier botón del sitio.
+ */
+import { X, Calendar, Clock, User, Building, Mail, Phone, CheckCircle, ArrowRight } from 'lucide-astro';
+
+const timeSlots = [
+  '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
+  '11:00 AM', '11:30 AM', '2:00 PM', '2:30 PM',
+  '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM',
+];
+---
+<!-- Overlay -->
+<div
+  id="booking-overlay"
+  class="fixed inset-0 z-[100] bg-gray-900/60 backdrop-blur-sm
+         opacity-0 pointer-events-none
+         transition-opacity duration-300"
+  aria-hidden="true"
+/>
+
+<!-- Modal -->
+<div
+  id="booking-modal"
+  class="fixed inset-0 z-[101] flex items-center justify-center p-4
+         opacity-0 pointer-events-none
+         transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="booking-title"
+  aria-hidden="true"
+>
+  <div
+    class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto
+           bg-white rounded-2xl shadow-2xl
+           scale-95 transition-transform duration-300"
+    id="booking-content"
+  >
+    <!-- Barra superior de acento -->
+    <div class="h-1 bg-gradient-to-r from-primary to-accent rounded-t-2xl" />
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-8 pt-6 pb-4 border-b border-gray-100">
+      <div>
+        <p class="text-xs font-semibold text-accent uppercase tracking-widest mb-1 font-mono">Consulta Gratuita</p>
+        <h2 id="booking-title" class="text-xl font-bold text-gray-900">
+          Agende su consulta de 30 minutos
+        </h2>
+      </div>
+      <button
+        id="booking-close"
+        class="w-8 h-8 rounded-lg flex items-center justify-center
+               text-gray-400 hover:text-gray-900 hover:bg-gray-100
+               transition-all duration-200"
+        aria-label="Cerrar modal"
+      >
+        <X size={18} stroke-width={2} />
+      </button>
+    </div>
+
+    <!-- Formulario -->
+    <form id="booking-form" class="p-8 space-y-6" novalidate>
+      <!-- Paso 1: Fecha -->
+      <div>
+        <label class="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+          <Calendar size={16} class="text-primary" />
+          Seleccione una fecha
+        </label>
+        <input
+          type="date"
+          name="fecha"
+          required
+          min={new Date(Date.now() + 86400000).toISOString().split('T')[0]}
+          class="w-full px-4 py-3 text-base text-gray-900
+                 border border-gray-300 rounded-lg bg-white
+                 transition-all duration-300
+                 focus:outline-none focus:border-primary focus:ring-3 focus:ring-primary/10"
+        />
+      </div>
+
+      <!-- Paso 2: Hora -->
+      <div>
+        <label class="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+          <Clock size={16} class="text-primary" />
+          Seleccione un horario
+        </label>
+        <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
+          {timeSlots.map((slot) => (
+            <label
+              class="relative text-center cursor-pointer
+                     bg-gray-50 border border-gray-200 rounded-lg px-3 py-2.5
+                     text-sm font-medium text-gray-700
+                     transition-all duration-200
+                     hover:border-primary/40 hover:bg-primary/5
+                     has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-sm"
+            >
+              <input type="radio" name="hora" value={slot} required class="sr-only" />
+              {slot}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Separador -->
+      <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
+      <!-- Paso 3: Datos personales -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1.5">
+          <label for="b-nombre" class="text-sm font-medium text-gray-900 flex items-center gap-1.5">
+            <User size={14} class="text-gray-400" />
+            Nombre completo
+          </label>
+          <input
+            type="text"
+            id="b-nombre"
+            name="nombre"
+            required
+            class="w-full px-4 py-3 text-sm text-gray-900
+                   border border-gray-300 rounded-lg bg-white
+                   placeholder:text-gray-400
+                   transition-all duration-300
+                   focus:outline-none focus:border-primary focus:ring-3 focus:ring-primary/10"
+            placeholder="Juan Pérez"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="b-empresa" class="text-sm font-medium text-gray-900 flex items-center gap-1.5">
+            <Building size={14} class="text-gray-400" />
+            Empresa
+          </label>
+          <input
+            type="text"
+            id="b-empresa"
+            name="empresa"
+            required
+            class="w-full px-4 py-3 text-sm text-gray-900
+                   border border-gray-300 rounded-lg bg-white
+                   placeholder:text-gray-400
+                   transition-all duration-300
+                   focus:outline-none focus:border-primary focus:ring-3 focus:ring-primary/10"
+            placeholder="Empresa SAS"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="b-email" class="text-sm font-medium text-gray-900 flex items-center gap-1.5">
+            <Mail size={14} class="text-gray-400" />
+            Email corporativo
+          </label>
+          <input
+            type="email"
+            id="b-email"
+            name="email"
+            required
+            class="w-full px-4 py-3 text-sm text-gray-900
+                   border border-gray-300 rounded-lg bg-white
+                   placeholder:text-gray-400
+                   transition-all duration-300
+                   focus:outline-none focus:border-primary focus:ring-3 focus:ring-primary/10"
+            placeholder="juan@empresa.co"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="b-telefono" class="text-sm font-medium text-gray-900 flex items-center gap-1.5">
+            <Phone size={14} class="text-gray-400" />
+            Teléfono
+          </label>
+          <input
+            type="tel"
+            id="b-telefono"
+            name="telefono"
+            class="w-full px-4 py-3 text-sm text-gray-900
+                   border border-gray-300 rounded-lg bg-white
+                   placeholder:text-gray-400
+                   transition-all duration-300
+                   focus:outline-none focus:border-primary focus:ring-3 focus:ring-primary/10"
+            placeholder="+57 300 000 0000"
+          />
+        </div>
+      </div>
+
+      <!-- Botón de envío -->
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center gap-2 w-full
+               bg-gradient-to-br from-accent to-accent-hover
+               text-white font-semibold text-base
+               px-6 py-4 rounded-lg
+               transition-all duration-300 ease-in-out
+               hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]
+               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary
+               disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+      >
+        <Calendar size={18} stroke-width={2} />
+        Confirmar Consulta Gratuita
+        <ArrowRight size={18} stroke-width={2} />
+      </button>
+
+      <p class="text-xs text-gray-500 text-center">
+        Recibirá confirmación por email en menos de 1 hora · Sesión 100% gratuita
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('booking-overlay')!;
+  const modal = document.getElementById('booking-modal')!;
+  const content = document.getElementById('booking-content')!;
+  const closeBtn = document.getElementById('booking-close')!;
+  const form = document.getElementById('booking-form') as HTMLFormElement;
+
+  function openModal() {
+    overlay.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    overlay.setAttribute('aria-hidden', 'false');
+    modal.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => {
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    content.classList.remove('scale-100');
+    content.classList.add('scale-95');
+    overlay.classList.add('opacity-0');
+    modal.classList.add('opacity-0');
+    setTimeout(() => {
+      overlay.classList.add('pointer-events-none');
+      modal.classList.add('pointer-events-none');
+      overlay.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  document.querySelectorAll('[data-booking]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
+      closeModal();
+    }
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const entries = Object.fromEntries(data.entries());
+
+    if (!entries.fecha || !entries.hora || !entries.nombre || !entries.empresa || !entries.email) {
+      const missing = [];
+      if (!entries.fecha) missing.push('fecha');
+      if (!entries.hora) missing.push('horario');
+      if (!entries.nombre) missing.push('nombre');
+      if (!entries.empresa) missing.push('empresa');
+      if (!entries.email) missing.push('email');
+      alert(`Por favor complete: ${missing.join(', ')}`);
+      return;
+    }
+
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.innerHTML = `
+      <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Agendando...
+    `;
+
+    const dateStr = new Date(entries.fecha + 'T12:00:00').toLocaleDateString('es-CO', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    setTimeout(() => {
+      const container = form.parentElement!;
+      form.remove();
+      container.innerHTML += `
+        <div class="p-8 text-center">
+          <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 mb-6">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">
+            ¡Consulta agendada!
+          </h3>
+          <p class="text-base text-gray-600 mb-1">
+            <strong class="text-gray-900">${dateStr}</strong> a las <strong class="text-gray-900">${entries.hora}</strong>
+          </p>
+          <p class="text-sm text-gray-500 mb-6">
+            Enviamos confirmación a <strong>${entries.email}</strong>
+          </p>
+          <button
+            onclick="document.getElementById('booking-close').click()"
+            class="inline-flex items-center justify-center gap-2
+                   bg-primary text-white font-semibold text-sm
+                   px-6 py-3 rounded-lg
+                   transition-all duration-300 hover:bg-primary-hover"
+          >
+            Entendido
+          </button>
+        </div>
+      `;
+    }, 1500);
+  });
+</script>

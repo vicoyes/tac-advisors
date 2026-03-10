@@ -1,0 +1,77 @@
+---
+/**
+ * SolucionesCTA.astro
+ * CTA final de la página Soluciones.
+ * Diagnóstico integral con imagen de fondo.
+ */
+import { Scan, Shield, Target, ArrowRight, Sparkles } from 'lucide-astro';
+
+const verticales = [
+  { icon: Scan, label: 'Motor Financiero', color: 'bg-primary text-white' },
+  { icon: Shield, label: 'Inteligencia Fiscal', color: 'bg-accent text-white' },
+  { icon: Target, label: 'Consultoría de Crecimiento', color: 'bg-primary text-white' },
+];
+---
+<section class="relative py-20 overflow-hidden">
+  <!-- Imagen de fondo -->
+  <img
+    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=600&fit=crop&q=80"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <div class="absolute inset-0 bg-gray-900/90" aria-hidden="true" />
+  <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10" aria-hidden="true" />
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <div
+      class="animate-fade-in opacity-0"
+      data-animate
+    >
+      <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent
+                  px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6">
+        <Sparkles size={14} stroke-width={2} />
+        Siguiente Paso
+      </div>
+
+      <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight mb-6">
+        ¿Cuál es el siguiente paso en su
+        <span class="text-accent">evolución financiera</span>?
+      </h2>
+
+      <p class="text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Seleccione la vertical que requiere intervención inmediata o solicite un
+        diagnóstico integral de su infraestructura actual.
+      </p>
+
+      <!-- Verticales como opciones -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        {verticales.map(({ icon: Icon, label, color }) => (
+          <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+            <div class:list={['w-8 h-8 rounded-lg flex items-center justify-center', color]}>
+              <Icon size={16} stroke-width={2} />
+            </div>
+            <span class="text-sm font-medium text-white">{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA principal -->
+      <a
+        href="/contacto"
+        data-booking
+        class="inline-flex items-center justify-center gap-2
+               bg-gradient-to-br from-accent to-accent-hover
+               text-white font-semibold text-lg
+               px-8 py-4 rounded-lg
+               transition-all duration-300 ease-in-out
+               hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]
+               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        Diagnóstico Gratuito de Soluciones
+        <ArrowRight size={20} stroke-width={2} />
+      </a>
+    </div>
+  </div>
+</section>

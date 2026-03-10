@@ -1,0 +1,61 @@
+---
+/**
+ * Manifesto.astro
+ * Sección 4: Manifiesto de la Eficiencia.
+ * Quote/highlight de alto impacto con fondo oscuro futurista.
+ */
+import { Zap } from 'lucide-astro';
+---
+<section class="relative py-20 overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+  <!-- Líneas decorativas futuristas -->
+  <div
+    class="absolute inset-0 opacity-10"
+    style="background-image: linear-gradient(90deg, transparent 95%, rgba(0, 212, 170, 0.3) 95%); background-size: 80px 80px;"
+    aria-hidden="true"
+  />
+  <div
+    class="absolute inset-0 opacity-10"
+    style="background-image: linear-gradient(0deg, transparent 95%, rgba(0, 71, 171, 0.3) 95%); background-size: 80px 80px;"
+    aria-hidden="true"
+  />
+
+  <!-- Degradado radial de acento -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96
+           rounded-full bg-accent/5 blur-3xl"
+    aria-hidden="true"
+  />
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <div
+      class="animate-fade-in opacity-0"
+      data-animate
+    >
+      <!-- Icono decorativo -->
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 mb-8">
+        <Zap size={32} stroke-width={1.5} class="text-accent" />
+      </div>
+
+      <!-- Barra superior de acento -->
+      <div class="w-16 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-8" />
+
+      <!-- Quote -->
+      <blockquote class="mb-8">
+        <p class="font-display text-3xl lg:text-4xl font-bold text-white leading-snug">
+          "No somos una firma contable. Somos la
+          <span class="text-accent">infraestructura tecnológica</span>
+          que su empresa necesita para
+          <span class="text-accent">escalar con precisión</span>."
+        </p>
+      </blockquote>
+
+      <!-- Barra inferior -->
+      <div class="w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
+
+      <!-- Atribución -->
+      <p class="text-sm text-gray-400 uppercase tracking-widest font-mono">
+        TAC ADVISORS — Manifiesto de Eficiencia
+      </p>
+    </div>
+  </div>
+</section>

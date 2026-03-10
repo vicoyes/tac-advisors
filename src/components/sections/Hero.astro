@@ -1,0 +1,157 @@
+---
+/**
+ * Hero.astro
+ * Sección de impacto inmediato — Home page.
+ * Balance: 60% técnico / 40% innovador.
+ * Narrativa: "Espejo Retrovisor → GPS Predictivo"
+ */
+import { ArrowRight, Play } from 'lucide-astro';
+---
+<section class="relative py-36 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+  <!-- Decoración diagonal futurista -->
+  <div
+    class="absolute inset-y-0 right-0 w-1/2
+           bg-gradient-to-br from-primary/5 to-accent/5
+           [clip-path:polygon(100%_0,100%_100%,0_100%,25%_0)]"
+    aria-hidden="true"
+  />
+
+  <!-- Grid decorativo sutil -->
+  <div
+    class="absolute inset-0 opacity-[0.03]"
+    style="background-image: radial-gradient(circle, #0047AB 1px, transparent 1px); background-size: 32px 32px;"
+    aria-hidden="true"
+  />
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Contenido -->
+      <div>
+        <p
+          class="text-sm font-semibold text-accent uppercase tracking-widest mb-4
+                 animate-fade-in opacity-0"
+          data-animate
+        >
+          Inteligencia Financiera
+        </p>
+
+        <h1
+          class="font-display text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6
+                 animate-fade-in opacity-0"
+          style="animation-delay: 100ms;"
+          data-animate
+        >
+          Deje de auditar el pasado.
+          <span class="text-primary">Empiece a orquestar el futuro.</span>
+        </h1>
+
+        <p
+          class="text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 max-w-xl
+                 animate-fade-in opacity-0"
+          style="animation-delay: 200ms;"
+          data-animate
+        >
+          Transformamos su contabilidad tradicional en una
+          <strong class="text-gray-900">Unidad de Inteligencia Financiera</strong>.
+          Integramos su arquitectura de datos con motores de IA para erradicar el error manual
+          y generar visibilidad predictiva en tiempo real.
+        </p>
+
+        <div
+          class="flex flex-wrap gap-4
+                 animate-fade-in opacity-0"
+          style="animation-delay: 300ms;"
+          data-animate
+        >
+          <a
+            href="/contacto"
+            data-booking
+            class="inline-flex items-center justify-center gap-2
+                   bg-gradient-to-br from-accent to-accent-hover
+                   text-white font-semibold text-base
+                   px-6 py-3 rounded-lg
+                   transition-all duration-300 ease-in-out
+                   hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]
+                   focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            Auditoría de Eficiencia Gratuita
+            <ArrowRight size={18} stroke-width={2} />
+          </a>
+          <a
+            href="/soluciones"
+            class="inline-flex items-center justify-center gap-2
+                   bg-transparent text-primary font-semibold text-base
+                   border-2 border-primary
+                   px-6 py-3 rounded-md
+                   transition-all duration-300 ease-in-out
+                   hover:bg-primary/5 hover:border-primary-hover hover:text-primary-hover
+                   focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            Ver Soluciones
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual: Foto profesional + Dashboard superpuesto -->
+      <div
+        class="hidden lg:block animate-slide-in-right opacity-0"
+        style="animation-delay: 400ms;"
+        data-animate
+      >
+        <div class="relative">
+          <!-- Foto profesional principal -->
+          <img
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop&q=80"
+            alt="Equipo profesional analizando datos financieros en oficina moderna"
+            class="rounded-2xl object-cover w-full h-[420px] shadow-xl"
+            loading="eager"
+            width="600"
+            height="420"
+          />
+
+          <!-- Dashboard flotante superpuesto -->
+          <div class="absolute -bottom-8 -left-8 w-72 bg-white border border-gray-200 rounded-xl p-5 shadow-2xl">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-error" />
+              <div class="w-2.5 h-2.5 rounded-full bg-warning" />
+              <div class="w-2.5 h-2.5 rounded-full bg-success" />
+              <span class="text-[10px] text-gray-400 ml-1 font-mono">dashboard.tac</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <div class="bg-gray-50 rounded-lg p-2.5">
+                <p class="text-[10px] text-gray-500 mb-0.5 font-mono">FLUJO NETO</p>
+                <p class="text-base font-bold text-primary font-mono">+23.4%</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-2.5">
+                <p class="text-[10px] text-gray-500 mb-0.5 font-mono">AHORRO FISCAL</p>
+                <p class="text-base font-bold text-accent font-mono">$148M</p>
+              </div>
+            </div>
+            <div class="h-16 flex items-end gap-1">
+              {[40, 55, 35, 65, 50, 80, 60, 90, 75, 95, 85, 100].map((h) => (
+                <div
+                  class="flex-1 rounded-t bg-gradient-to-t from-primary to-primary/60"
+                  style={`height: ${h}%`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <!-- Badge de precisión flotante -->
+          <div
+            class="absolute -top-4 -right-4 bg-white border border-gray-200 rounded-lg p-3 shadow-lg
+                   flex items-center gap-3 animate-pulse-soft"
+          >
+            <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+              <Play size={14} class="text-accent" fill="currentColor" />
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-gray-900">Precisión 99.7%</p>
+              <p class="text-[10px] text-gray-500">Predicción Q2 activa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

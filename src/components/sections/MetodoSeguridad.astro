@@ -1,0 +1,96 @@
+---
+/**
+ * MetodoSeguridad.astro
+ * Sección 5: Seguridad y Confidencialidad.
+ * Fondo blanco, enfoque ultra-técnico.
+ */
+import { ShieldCheck, Lock, Server, FileKey } from 'lucide-astro';
+
+const protocolos = [
+  { icon: Lock, label: 'Encriptación E2E', detail: 'AES-256' },
+  { icon: Server, label: 'Infraestructura Aislada', detail: 'SOC 2 Type II' },
+  { icon: FileKey, label: 'Acceso Controlado', detail: 'MFA + RBAC' },
+  { icon: ShieldCheck, label: 'Auditorías Continuas', detail: 'ISO 27001' },
+];
+---
+<section class="relative py-20 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Imagen de seguridad -->
+      <div
+        class="relative animate-slide-in-left opacity-0"
+        data-animate
+      >
+        <img
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=480&fit=crop&q=80"
+          alt="Centro de datos con protocolos de seguridad avanzados"
+          data-fallback="https://placehold.co/600x480/e3f2fd/1565c0?text=Seguridad+de+Datos"
+          class="rounded-2xl object-cover w-full h-[420px] shadow-xl metodo-seguridad-img"
+          loading="lazy"
+          width="600"
+          height="480"
+        />
+
+        <!-- Sello de seguridad flotante -->
+        <div class="absolute -top-4 -right-4 bg-white border-2 border-primary rounded-2xl p-4 shadow-lg">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <ShieldCheck size={24} stroke-width={1.5} class="text-primary" />
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 font-mono">NIVEL</p>
+              <p class="text-base font-bold text-primary font-mono">Bancario</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy + Protocolos -->
+      <div
+        class="animate-fade-in opacity-0"
+        data-animate
+      >
+        <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-4 font-mono">
+          Seguridad y Confidencialidad
+        </p>
+
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          Seguridad
+          <span class="text-primary">sin Concesiones</span>
+        </h2>
+
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          Utilizamos protocolos de encriptación de extremo a extremo, cumpliendo con los
+          estándares internacionales más rigurosos de protección de datos financieros.
+          Su información es su activo más valioso;
+          <strong class="text-gray-900">nosotros somos su bóveda digital</strong>.
+        </p>
+
+        <!-- Grid de protocolos -->
+        <div class="grid grid-cols-2 gap-4">
+          {protocolos.map(({ icon: Icon, label, detail }) => (
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4
+                        transition-all duration-300 hover:border-primary/30 hover:shadow-md">
+              <div class="flex items-center gap-3 mb-2">
+                <Icon size={18} stroke-width={1.5} class="text-primary" />
+                <span class="text-sm font-semibold text-gray-900">{label}</span>
+              </div>
+              <p class="text-xs text-primary font-mono font-semibold">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.metodo-seguridad-img').forEach((img) => {
+    img.addEventListener('error', function () {
+      const fallback = this.getAttribute('data-fallback');
+      if (fallback && this.src !== fallback) {
+        this.src = fallback;
+      }
+    });
+  });
+</script>

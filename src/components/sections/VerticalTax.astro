@@ -1,0 +1,112 @@
+---
+/**
+ * VerticalTax.astro
+ * Vertical 2: Strategic Tax Intelligence.
+ * Optimización Fiscal Estratégica con layout invertido.
+ */
+import { Shield, Scale, Landmark, ArrowRight } from 'lucide-astro';
+
+const puntos = [
+  {
+    icon: Scale,
+    title: 'Planeación Dinámica',
+    description: 'Escenarios fiscales modelados según sus decisiones de inversión.',
+  },
+  {
+    icon: Landmark,
+    title: 'Rigor Normativo',
+    description: 'Actualización constante de protocolos frente a cambios legislativos.',
+  },
+  {
+    icon: Shield,
+    title: 'Protección de Patrimonio',
+    description: 'Estructuras financieras diseñadas para la resiliencia a largo plazo.',
+  },
+];
+---
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Contenido (primero en orden para layout invertido) -->
+      <div
+        class="order-2 lg:order-1 animate-fade-in opacity-0"
+        data-animate
+      >
+        <div class="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
+          Protección de Márgenes
+        </div>
+
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+          Soberanía Fiscal:
+          <span class="text-accent">Proactividad vs. Reacción</span>
+        </h2>
+
+        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+          No esperamos al cierre para auditar sus impuestos. Implementamos una capa de
+          inteligencia fiscal proactiva que optimiza sus márgenes y garantiza el cumplimiento
+          normativo con <strong class="text-gray-900">rigor bancario</strong>.
+        </p>
+
+        <div class="bg-white border-l-4 border-primary rounded-r-lg p-4 mb-8 shadow-sm">
+          <p class="text-sm font-semibold text-primary mb-1">Antídoto a la Inercia Legada</p>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Sustituimos la preparación reactiva de impuestos por una arquitectura de planeación
+            fiscal continua. Menos riesgo de sanciones, mayor eficiencia en la carga tributaria.
+          </p>
+        </div>
+
+        <!-- Puntos clave -->
+        <div class="space-y-4 mb-8">
+          {puntos.map(({ icon: Icon, title, description }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon size={20} stroke-width={1.5} class="text-accent" />
+              </div>
+              <div>
+                <p class="text-base font-semibold text-gray-900">{title}</p>
+                <p class="text-sm text-gray-600">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="/contacto"
+          class="inline-flex items-center gap-2 text-accent font-semibold text-base
+                 transition-all duration-300 hover:gap-3"
+        >
+          Solicitar diagnóstico fiscal
+          <ArrowRight size={18} stroke-width={2} />
+        </a>
+      </div>
+
+      <!-- Imagen -->
+      <div
+        class="order-1 lg:order-2 relative animate-slide-in-right opacity-0"
+        data-animate
+      >
+        <img
+          src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=640&h=480&fit=crop&q=80"
+          alt="Análisis fiscal estratégico con gráficos de optimización tributaria"
+          class="rounded-2xl object-cover w-full h-[420px] shadow-xl"
+          loading="lazy"
+          width="640"
+          height="480"
+        />
+
+        <!-- Badge flotante -->
+        <div class="absolute -bottom-6 -left-6 bg-white border-2 border-accent rounded-xl p-4 shadow-lg">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+              <Shield size={20} stroke-width={2} class="text-accent" />
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 font-mono">CUMPLIMIENTO</p>
+              <p class="text-lg font-bold text-accent font-mono">100%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

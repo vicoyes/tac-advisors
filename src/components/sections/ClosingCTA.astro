@@ -1,0 +1,121 @@
+---
+/**
+ * ClosingCTA.astro
+ * Sección 5: Cierre y Conversión.
+ * CTA con imagen de consultoría + card de acción.
+ */
+import { Calendar, ArrowRight, CheckCircle } from 'lucide-astro';
+
+const beneficios = [
+  'Auditoría de eficiencia gratuita',
+  'Plan de acción personalizado',
+  'Sin compromiso de permanencia',
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Encabezado -->
+    <div
+      class="max-w-3xl mx-auto text-center mb-16
+             animate-fade-in opacity-0"
+      data-animate
+    >
+      <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-4">
+        Siguiente Paso
+      </p>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+        ¿Está listo para evolucionar a la
+        <span class="text-accent">Inteligencia Financiera</span>?
+      </h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Su empresa genera gigabytes de datos estratégicos cada mes.
+        Permítanos convertirlos en su mayor activo competitivo.
+      </p>
+    </div>
+
+    <!-- Grid: Imagen + CTA Card -->
+    <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+      <!-- Imagen de consultoría -->
+      <div
+        class="relative rounded-2xl overflow-hidden animate-slide-in-left opacity-0"
+        data-animate
+      >
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop&q=80"
+          alt="Reunión de consultoría financiera estratégica con equipo profesional"
+          class="w-full h-full min-h-[400px] object-cover"
+          loading="lazy"
+          width="700"
+          height="500"
+        />
+        <!-- Overlay gradiente -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
+
+        <!-- Beneficios sobre la imagen -->
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <ul class="space-y-3">
+            {beneficios.map((b) => (
+              <li class="flex items-center gap-3 text-white">
+                <CheckCircle size={18} stroke-width={2} class="text-accent shrink-0" />
+                <span class="text-sm font-medium">{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA Card -->
+      <div
+        class="relative bg-gradient-to-br from-gray-800 to-gray-900
+               border border-gray-700 rounded-2xl p-10 lg:p-12
+               text-white overflow-hidden
+               before:absolute before:inset-x-0 before:top-0 before:h-1
+               before:bg-gradient-to-r before:from-accent before:to-primary
+               animate-scale-in opacity-0
+               flex flex-col justify-center"
+        data-animate
+      >
+        <!-- Decoración sutil -->
+        <div
+          class="absolute top-0 right-0 w-1/2 h-full opacity-5
+                 bg-gradient-to-bl from-accent to-transparent"
+          aria-hidden="true"
+        />
+
+        <div class="relative z-10 text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 mb-6">
+            <Calendar size={32} stroke-width={1.5} class="text-accent" />
+          </div>
+
+          <h3 class="text-2xl lg:text-3xl font-bold text-white mb-3">
+            Consulta Técnica de 30 Minutos
+          </h3>
+
+          <p class="text-sm text-gray-400 mb-8 leading-relaxed max-w-sm mx-auto">
+            Analizamos su situación actual y le mostramos oportunidades concretas de optimización.
+          </p>
+
+            <a
+              href="/contacto"
+              data-booking
+              class="inline-flex items-center justify-center gap-2 w-full max-w-xs mx-auto
+                     bg-gradient-to-br from-accent to-accent-hover
+                     text-white font-semibold text-base
+                     px-6 py-4 rounded-lg
+                     transition-all duration-300 ease-in-out
+                     hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]
+                     focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              <Calendar size={18} stroke-width={2} />
+              Consulta Técnica Gratuita
+            <ArrowRight size={18} stroke-width={2} />
+          </a>
+
+          <p class="text-xs text-gray-500 mt-4">
+            Respuesta garantizada en menos de 24 horas
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+/**
+ * RecursosFeatured.astro
+ * Artículo destacado en formato grande.
+ */
+import { Clock, ArrowRight, TrendingUp } from 'lucide-astro';
+---
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div
+      class="grid lg:grid-cols-2 gap-0 bg-gray-50 rounded-2xl overflow-hidden
+             border border-gray-200 transition-all duration-300
+             hover:shadow-xl hover:border-primary/20
+             animate-fade-in opacity-0"
+      data-animate
+    >
+      <!-- Imagen -->
+      <div class="relative h-64 lg:h-auto">
+        <img
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=500&fit=crop&q=80"
+          alt="Dashboard de inteligencia financiera con análisis predictivo en tiempo real"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          width="700"
+          height="500"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-gray-50/50 hidden lg:block" />
+        <!-- Badge destacado -->
+        <div class="absolute top-4 left-4 bg-accent text-white text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1.5">
+          <TrendingUp size={12} stroke-width={2} />
+          Destacado
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="p-8 lg:p-10 flex flex-col justify-center">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-xs font-semibold text-primary uppercase tracking-widest">Inteligencia Financiera</span>
+          <span class="text-gray-300">·</span>
+          <span class="flex items-center gap-1 text-xs text-gray-500">
+            <Clock size={12} stroke-width={2} />
+            8 min lectura
+          </span>
+        </div>
+
+        <h2 class="font-display text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-4">
+          Cómo la IA Predictiva Está Redefiniendo la Contabilidad del Futuro
+        </h2>
+
+        <p class="text-base text-gray-600 leading-relaxed mb-6">
+          El 73% de las empresas que adoptan inteligencia artificial en sus procesos contables
+          reportan una reducción del 40% en errores y un aumento del 60% en velocidad de
+          reporting. Exploramos cómo implementar esta transformación paso a paso.
+        </p>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+              <span class="text-xs font-bold text-primary">TA</span>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-gray-900">TAC Research</p>
+              <p class="text-xs text-gray-500">Mar 5, 2026</p>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 text-primary font-semibold text-sm
+                   transition-all duration-300 hover:gap-3"
+          >
+            Leer artículo
+            <ArrowRight size={16} stroke-width={2} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

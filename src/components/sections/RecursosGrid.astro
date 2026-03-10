@@ -1,0 +1,158 @@
+---
+/**
+ * RecursosGrid.astro
+ * Grid de artículos del blog con imágenes.
+ * Balance: 65% técnico / 35% innovador.
+ */
+import { Clock, ArrowRight } from 'lucide-astro';
+
+const articulos = [
+  {
+    category: 'Optimización Fiscal',
+    categoryColor: 'text-primary',
+    title: 'Planeación Tributaria Dinámica: 5 Estrategias para Proteger sus Márgenes en 2026',
+    excerpt: 'Los cambios legislativos de este año exigen una arquitectura fiscal proactiva. Le mostramos cómo estructurarla.',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&h=300&fit=crop&q=80',
+    imageAlt: 'Análisis fiscal con gráficos de optimización tributaria',
+    readTime: '6 min',
+    date: 'Mar 3, 2026',
+    author: 'TAC Fiscal',
+  },
+  {
+    category: 'Tecnología',
+    categoryColor: 'text-accent',
+    title: 'ERP + IA: La Integración que Elimina el 99% de Errores en Conciliación Bancaria',
+    excerpt: 'Casos reales de cómo nuestros clientes erradicaron la conciliación manual con conectores inteligentes.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop&q=80',
+    imageAlt: 'Infraestructura tecnológica de servidores y redes',
+    readTime: '5 min',
+    date: 'Feb 27, 2026',
+    author: 'TAC Tech',
+  },
+  {
+    category: 'Inteligencia Financiera',
+    categoryColor: 'text-primary',
+    title: 'De la Autopsia al GPS: Cómo Transformar sus Reportes Financieros en Instrumentos Predictivos',
+    excerpt: 'El paradigma de los estados financieros retrospectivos está muerto. Le presentamos el modelo predictivo.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop&q=80',
+    imageAlt: 'Dashboard financiero con KPIs en pantalla de ordenador',
+    readTime: '7 min',
+    date: 'Feb 20, 2026',
+    author: 'TAC Research',
+  },
+  {
+    category: 'Tendencias',
+    categoryColor: 'text-accent',
+    title: 'El CFO del Futuro: Por Qué los Directores Financieros Necesitan Hablar el Lenguaje de los Datos',
+    excerpt: 'El rol del CFO está evolucionando de guardián contable a estratega de datos. ¿Está su equipo preparado?',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&h=300&fit=crop&q=80',
+    imageAlt: 'Ejecutivo analizando tendencias de mercado en oficina moderna',
+    readTime: '5 min',
+    date: 'Feb 14, 2026',
+    author: 'TAC Strategy',
+  },
+  {
+    category: 'Tecnología',
+    categoryColor: 'text-accent',
+    title: 'Automatización Contable: Guía Técnica para Implementar Workflows Inteligentes',
+    excerpt: 'Paso a paso para conectar su ERP, bancos y CRM en un flujo automatizado que trabaja 24/7.',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&h=300&fit=crop&q=80',
+    imageAlt: 'Múltiples pantallas mostrando flujos de datos automatizados',
+    readTime: '10 min',
+    date: 'Feb 8, 2026',
+    author: 'TAC Tech',
+  },
+  {
+    category: 'Inteligencia Financiera',
+    categoryColor: 'text-primary',
+    title: 'Soberanía de Datos Financieros: Cómo Recuperar el Control de su Información',
+    excerpt: 'Su información financiera es su activo más valioso. Le mostramos los protocolos para protegerla.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop&q=80',
+    imageAlt: 'Seguridad de datos con protocolos de encriptación avanzados',
+    readTime: '6 min',
+    date: 'Feb 1, 2026',
+    author: 'TAC Security',
+  },
+];
+---
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10">
+      <h2 class="text-2xl font-bold text-gray-900">Últimos Artículos</h2>
+      <span class="text-sm text-gray-500">{articulos.length} publicaciones</span>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {articulos.map(({ category, categoryColor, title, excerpt, image, imageAlt, readTime, date, author }, i) => (
+        <article
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100
+                 transition-all duration-300
+                 hover:bg-white hover:shadow-xl hover:border-gray-200 hover:-translate-y-1
+                 animate-fade-in opacity-0"
+          style={`animation-delay: ${i * 80 + 100}ms`}
+          data-animate
+        >
+          {/* Imagen */}
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src={image}
+              alt={imageAlt}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              width="500"
+              height="300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          </div>
+
+          {/* Contenido */}
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class:list={['text-xs font-semibold uppercase tracking-widest', categoryColor]}>
+                {category}
+              </span>
+              <span class="text-gray-300">·</span>
+              <span class="flex items-center gap-1 text-xs text-gray-500">
+                <Clock size={12} stroke-width={2} />
+                {readTime}
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 leading-snug mb-3 line-clamp-2
+                       group-hover:text-primary transition-colors duration-300">
+              {title}
+            </h3>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
+              {excerpt}
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span class="text-[9px] font-bold text-primary">TA</span>
+                </div>
+                <div>
+                  <p class="text-[10px] font-semibold text-gray-700">{author}</p>
+                  <p class="text-[10px] text-gray-400">{date}</p>
+                </div>
+              </div>
+
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 text-primary text-xs font-semibold
+                       opacity-0 group-hover:opacity-100 transition-all duration-300
+                       hover:gap-2"
+              >
+                Leer
+                <ArrowRight size={14} stroke-width={2} />
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

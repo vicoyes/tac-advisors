@@ -1,0 +1,103 @@
+---
+import { Mail, MapPin, Clock, ArrowUpRight } from 'lucide-astro';
+
+const servicios = [
+  { label: 'Asesoría Financiera', href: '/soluciones#asesoria' },
+  { label: 'Planeación Tributaria', href: '/soluciones#tributaria' },
+  { label: 'Automatización Contable', href: '/soluciones#automatizacion' },
+  { label: 'Inteligencia de Datos', href: '/soluciones#datos' },
+];
+
+const empresa = [
+  { label: 'Metodología', href: '/metodologia' },
+  { label: 'Recursos', href: '/recursos' },
+  { label: 'Contacto', href: '/contacto' },
+];
+---
+<footer class="bg-gray-800 text-white pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <!-- Marca -->
+      <div>
+        <p class="text-2xl font-bold font-display text-white mb-4">TAC ADVISORS</p>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Unidad de Inteligencia Financiera para empresas que buscan transformación real.
+        </p>
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <Mail size={14} stroke-width={2} class="text-accent shrink-0" />
+            <span>contacto@tacadvisors.co</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <MapPin size={14} stroke-width={2} class="text-accent shrink-0" />
+            <span>Bogotá, Colombia</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <Clock size={14} stroke-width={2} class="text-accent shrink-0" />
+            <span>Lun – Vie: 8:00 – 18:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicios -->
+      <div>
+        <h3 class="text-base font-semibold text-white mb-4">Servicios</h3>
+        <ul class="space-y-3">
+          {servicios.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-sm text-gray-400 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1 group">
+                {label}
+                <ArrowUpRight size={12} class="opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <h3 class="text-base font-semibold text-white mb-4">Empresa</h3>
+        <ul class="space-y-3">
+          {empresa.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-sm text-gray-400 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1 group">
+                {label}
+                <ArrowUpRight size={12} class="opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- CTA rápido -->
+      <div>
+        <h3 class="text-base font-semibold text-white mb-4">¿Listo para empezar?</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Agende una consulta técnica gratuita y descubra cómo optimizar su operación financiera.
+        </p>
+        <a
+          href="/contacto"
+          data-booking
+          class="inline-flex items-center justify-center gap-2
+                 bg-gradient-to-br from-accent to-accent-hover
+                 text-white text-sm font-semibold px-5 py-2.5 rounded-lg
+                 transition-all duration-300
+                 hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)]"
+        >
+          Consulta Gratuita
+        </a>
+      </div>
+    </div>
+
+    <!-- Línea divisoria con gradiente -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8" />
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <p>&copy; 2026 TAC ADVISORS SAS. Todos los derechos reservados.</p>
+      <p class="flex items-center gap-1">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse-soft" />
+        Sistemas operativos
+      </p>
+    </div>
+  </div>
+</footer>

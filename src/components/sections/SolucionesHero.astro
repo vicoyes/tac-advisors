@@ -1,0 +1,78 @@
+---
+/**
+ * SolucionesHero.astro
+ * Hero de la página Soluciones.
+ * Balance: 75% técnico / 25% innovador.
+ */
+import { Layers, ArrowDown } from 'lucide-astro';
+---
+<section class="relative py-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
+  <!-- Imagen de fondo -->
+  <img
+    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&h=600&fit=crop&q=80"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity"
+    loading="eager"
+    aria-hidden="true"
+  />
+
+  <!-- Grid técnico -->
+  <div
+    class="absolute inset-0 opacity-10"
+    style="background-image: linear-gradient(rgba(0,212,170,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,170,0.2) 1px, transparent 1px); background-size: 60px 60px;"
+    aria-hidden="true"
+  />
+
+  <!-- Gradiente radial -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]
+           rounded-full bg-primary/10 blur-3xl"
+    aria-hidden="true"
+  />
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <div
+        class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent
+               px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6
+               animate-fade-in opacity-0"
+        data-animate
+      >
+        <Layers size={14} stroke-width={2} />
+        3 Verticales de Inteligencia
+      </div>
+
+      <h1
+        class="font-display text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6
+               animate-fade-in opacity-0"
+        style="animation-delay: 100ms;"
+        data-animate
+      >
+        Soluciones diseñadas para
+        <span class="text-accent">erradicar la inercia</span>
+      </h1>
+
+      <p
+        class="text-lg lg:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto
+               animate-fade-in opacity-0"
+        style="animation-delay: 200ms;"
+        data-animate
+      >
+        Cada vertical opera como un módulo independiente que puede integrarse a su infraestructura
+        existente. Elija la que necesita o active las tres para una transformación completa.
+      </p>
+
+      <a
+        href="#verticales"
+        class="inline-flex items-center gap-2 text-gray-400 text-sm font-medium
+               transition-colors duration-300 hover:text-accent
+               animate-fade-in opacity-0"
+        style="animation-delay: 300ms;"
+        data-animate
+      >
+        Explorar verticales
+        <ArrowDown size={16} stroke-width={2} class="animate-bounce" />
+      </a>
+    </div>
+  </div>
+</section>

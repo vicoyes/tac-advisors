@@ -1,0 +1,118 @@
+---
+/**
+ * MetodoHero.astro
+ * Hero de la página Metodología.
+ * Balance: 80% técnico / 20% innovador.
+ */
+import { Cpu, ArrowDown } from 'lucide-astro';
+---
+<section class="relative py-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
+  <!-- Imagen de fondo: servidores / tecnología -->
+  <img
+    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&h=600&fit=crop&q=80"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-luminosity"
+    loading="eager"
+    aria-hidden="true"
+  />
+
+  <!-- Grid técnico de circuitos -->
+  <div
+    class="absolute inset-0 opacity-[0.06]"
+    style="background-image: linear-gradient(rgba(0,71,171,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,71,171,0.4) 1px, transparent 1px); background-size: 40px 40px;"
+    aria-hidden="true"
+  />
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Copy -->
+      <div>
+        <div
+          class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-accent
+                 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6
+                 animate-fade-in opacity-0"
+          data-animate
+        >
+          <Cpu size={14} stroke-width={2} />
+          Stack Tecnológico + Flujo IA
+        </div>
+
+        <h1
+          class="font-display text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6
+                 animate-fade-in opacity-0"
+          style="animation-delay: 100ms;"
+          data-animate
+        >
+          Infraestructura de Datos que
+          <span class="text-accent">Sostiene su Estrategia</span>
+        </h1>
+
+        <p
+          class="text-lg lg:text-xl text-gray-300 leading-relaxed mb-10
+                 animate-fade-in opacity-0"
+          style="animation-delay: 200ms;"
+          data-animate
+        >
+          En TAC ADVISORS no realizamos entradas manuales ni conciliaciones de papel.
+          Hemos diseñado un <strong class="text-white">Stack Tecnológico</strong> de vanguardia
+          que integra todas sus fuentes de datos financieros en un solo flujo orquestado
+          por Inteligencia Artificial.
+        </p>
+
+        <a
+          href="#stack"
+          class="inline-flex items-center gap-2 text-gray-400 text-sm font-medium
+                 transition-colors duration-300 hover:text-accent
+                 animate-fade-in opacity-0"
+          style="animation-delay: 300ms;"
+          data-animate
+        >
+          Conocer el método
+          <ArrowDown size={16} stroke-width={2} class="animate-bounce" />
+        </a>
+      </div>
+
+      <!-- Visual: Diagrama de flujo simplificado -->
+      <div
+        class="hidden lg:block animate-slide-in-right opacity-0"
+        style="animation-delay: 400ms;"
+        data-animate
+      >
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=450&fit=crop&q=80"
+            alt="Equipo técnico trabajando en infraestructura de datos"
+            class="rounded-2xl object-cover w-full h-[400px] shadow-xl"
+            loading="eager"
+            width="600"
+            height="400"
+          />
+
+          <!-- Overlay con flujo simplificado -->
+          <div class="absolute bottom-6 left-6 right-6 bg-gray-900/90 backdrop-blur-sm border border-gray-700 rounded-xl p-5">
+            <div class="flex items-center justify-between gap-3">
+              {['ERP', 'IA', 'Análisis', 'Dashboard'].map((step, i) => (
+                <>
+                  <div class="text-center flex-1">
+                    <div class:list={[
+                      'w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-1.5',
+                      i % 2 === 0 ? 'bg-primary/20' : 'bg-accent/20'
+                    ]}>
+                      <span class:list={['text-sm font-bold font-mono', i % 2 === 0 ? 'text-primary' : 'text-accent']}>
+                        {`0${i + 1}`}
+                      </span>
+                    </div>
+                    <p class="text-[10px] text-gray-400 font-mono">{step}</p>
+                  </div>
+                  {i < 3 && (
+                    <div class="text-gray-600 shrink-0">→</div>
+                  )}
+                </>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
