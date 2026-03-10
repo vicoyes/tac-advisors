@@ -9,6 +9,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://vicoyes.github.io',
   base: '/tac-advisors/',
+  trailingSlash: 'always',
 
   vite: {
     plugins: [tailwindcss()],
