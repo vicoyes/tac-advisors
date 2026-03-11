@@ -18,8 +18,15 @@ const contactoHref = withBase('contacto/');
          border-b border-gray-100"
 >
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href={homeHref} class="text-2xl font-bold text-primary font-display no-underline hover:text-primary">
-      TAC ADVISORS
+    <a href={homeHref} class="flex items-center no-underline hover:opacity-90 transition-opacity duration-300">
+      <img
+        src={withBase('logo.webp')}
+        alt="TAC ADVISORS"
+        class="h-[50px] w-auto"
+        width="138"
+        height="50"
+        fetchpriority="high"
+      />
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
