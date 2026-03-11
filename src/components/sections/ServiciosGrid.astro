@@ -13,7 +13,9 @@ import {
   ClipboardCheck,
   ChevronDown,
   CheckCircle2,
+  ArrowRight,
 } from 'lucide-astro';
+import { withBase } from '../../utils/paths';
 
 const servicios = [
   {
@@ -269,6 +271,17 @@ const servicios = [
                 </div>
               ))}
             </div>
+
+            <a
+              href={withBase(`servicios/${s.id}/`)}
+              class:list={[
+                'mt-auto inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-300 no-underline',
+                s.color === 'accent' ? 'text-accent hover:text-accent-hover' : 'text-primary hover:text-primary-hover'
+              ]}
+            >
+              Ver detalle del servicio
+              <ArrowRight size={16} stroke-width={2} />
+            </a>
           </div>
         </div>
       ))}

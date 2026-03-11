@@ -1,0 +1,391 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle2,
+  Calendar,
+  FileEdit,
+  Wallet,
+  Lock,
+  BarChart3,
+  FolderOpen,
+  Settings,
+  Eye,
+  ShieldCheck,
+  CalendarCheck,
+  Rocket,
+  Handshake,
+} from 'lucide-astro';
+import { withBase } from '../utils/paths';
+
+interface Beneficio {
+  titulo: string;
+  descripcion: string;
+}
+
+interface PerfilCliente {
+  texto: string;
+}
+
+interface QueIncluyeItem {
+  titulo: string;
+  descripcion?: string;
+}
+
+interface Props {
+  titulo: string;
+  tituloItalico?: string; // palabra(s) en italic en el título, ej. "Contable."
+  subtitulo: string;
+  badgeLabel?: string; // ej. "Financial Operations // V2.0"
+  descripcionCorta: string;
+  imagen: string;
+  imgAlt: string;
+  color: 'primary' | 'accent';
+  heroQuote?: { label: string; text: string };
+  intro?: string;
+  enQueConsiste: string[];
+  queIncluye: QueIncluyeItem[] | string[];
+  beneficios: Beneficio[];
+  paraQuien: PerfilCliente[];
+  enfoque: string[];
+  enfoqueBar?: { human: string; tech: string }; // ej. "Human Expertise 60%", "Tech Automation 40%"
+  tecnologia?: string[];
+  porQue?: string[];
+  ctaTitulo: string;
+  ctaDescripcion: string;
+  ctaBtnPrimario: string;
+  ctaBtnSecundario: string;
+}
+
+const props = Astro.props;
+const titulo = props.titulo;
+const tituloItalico = props.tituloItalico ?? titulo;
+const subtitulo = props.subtitulo;
+const badgeLabel = props.badgeLabel ?? subtitulo;
+const descripcionCorta = props.descripcionCorta;
+const imagen = props.imagen;
+const imgAlt = props.imgAlt;
+const color = props.color;
+const heroQuote = props.heroQuote;
+const intro = props.intro;
+const enQueConsiste = props.enQueConsiste;
+const rawQueIncluye = props.queIncluye;
+const queIncluyeItems: QueIncluyeItem[] = rawQueIncluye.map((item) =>
+  typeof item === 'string' ? { titulo: item } : item
+);
+const beneficios = props.beneficios;
+const paraQuien = props.paraQuien;
+const enfoque = props.enfoque;
+const enfoqueBar = props.enfoqueBar;
+const ctaTitulo = props.ctaTitulo;
+const ctaDescripcion = props.ctaDescripcion;
+const ctaBtnPrimario = props.ctaBtnPrimario;
+const ctaBtnSecundario = props.ctaBtnSecundario;
+
+const contactoHref = withBase('contacto/');
+const solucionesHref = withBase('soluciones/');
+
+const featureIcons = [FileEdit, Wallet, Lock, BarChart3, FolderOpen, Settings];
+const benefitIcons = [Eye, ShieldCheck, CalendarCheck, Rocket];
+
+const colorClasses =
+  color === 'accent'
+    ? {
+        bg: 'bg-accent/10',
+        text: 'text-accent',
+        btnBg: 'bg-accent hover:bg-accent-hover',
+        cardHover: 'hover:bg-accent hover:text-white',
+        iconBg: 'bg-accent',
+      }
+    : {
+        bg: 'bg-primary/10',
+        text: 'text-primary',
+        btnBg: 'bg-primary hover:bg-primary-hover',
+        cardHover: 'hover:bg-primary hover:text-white',
+        iconBg: 'bg-primary',
+      };
+---
+
+<BaseLayout title={`${titulo} — TAC ADVISORS`} description={descripcionCorta}>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-12 lg:pt-20 pb-20 lg:pb-24 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <a
+        href={solucionesHref}
+        class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors duration-300 mb-8 no-underline"
+      >
+        <ArrowLeft size={16} stroke-width={2} />
+        Volver a Soluciones
+      </a>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="space-y-6 lg:space-y-8 animate-fade-in opacity-0" data-animate>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold tracking-tighter uppercase">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            {badgeLabel}
+          </div>
+
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight text-gray-900">
+            {tituloItalico ? (
+              <>
+                {titulo}
+                <br />
+                <span class={color === 'primary' ? 'text-primary italic' : 'text-accent italic'}>{tituloItalico}</span>
+              </>
+            ) : titulo.split(' ').length > 1 ? (
+              <>
+                {titulo.split(' ').slice(0, -1).join(' ')}
+                <br />
+                <span class={color === 'primary' ? 'text-primary italic' : 'text-accent italic'}>{titulo.split(' ').slice(-1)[0]}</span>
+              </>
+            ) : (
+              <span class={color === 'primary' ? 'text-primary italic' : 'text-accent italic'}>{titulo}</span>
+            )}
+          </h1>
+
+          <div class="space-y-4 max-w-lg">
+            <p class="text-xl font-bold text-gray-700">
+              {descripcionCorta}
+            </p>
+            {intro && (
+              <p class="text-gray-500 leading-relaxed">
+                {intro}
+              </p>
+            )}
+          </div>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a
+              href={contactoHref}
+              data-booking
+              class="inline-flex items-center gap-3 bg-gray-800 text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-900 transition-all duration-300 group no-underline"
+            >
+              {ctaBtnPrimario}
+              <ArrowRight size={20} stroke-width={2} class="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
+
+        <div class="relative animate-slide-in-right opacity-0" data-animate>
+          <div class="aspect-square max-h-[480px] bg-gray-200 rounded-3xl overflow-hidden relative group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent mix-blend-multiply z-10" />
+            <img
+              src={imagen}
+              alt={imgAlt}
+              class="w-full h-full object-cover"
+              loading="eager"
+              width="600"
+              height="600"
+            />
+          </div>
+          {heroQuote && (
+            <div class="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 max-w-xs z-20">
+              <p class="font-mono text-[10px] text-primary mb-2 uppercase tracking-widest font-bold">
+                {heroQuote.label}
+              </p>
+              <p class="text-sm font-medium leading-relaxed italic text-gray-700">
+                "{heroQuote.text}"
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Context: ¿En qué consiste? -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5">
+          <h2 class="font-display text-4xl font-bold leading-tight mb-8 text-gray-900">
+            ¿En qué consiste este servicio?
+          </h2>
+          <p class="font-mono text-primary text-xs mb-4 uppercase tracking-[0.3em]">
+            SERVICE_DEFINITION_MODULE
+          </p>
+        </div>
+        <div class="lg:col-span-7 space-y-8">
+          {enQueConsiste.map((p, i) => (
+            <p
+              class:list={[
+                'leading-relaxed',
+                i === 0 ? 'text-2xl font-light text-gray-600' : 'text-lg text-gray-500'
+              ]}
+            >
+              {p}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features: ¿Qué incluye? -->
+  <section class="py-16 lg:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div>
+          <span class="font-mono text-primary text-xs uppercase tracking-widest block mb-4">
+            CAPABILITIES_MAP
+          </span>
+          <h2 class="font-display text-4xl lg:text-5xl font-black italic text-gray-900">
+            ¿Qué incluye?
+          </h2>
+        </div>
+        <p class="text-gray-500 max-w-md text-sm">
+          Ecosistema técnico de servicios diseñados para la excelencia operativa y financiera.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {queIncluyeItems.slice(0, 6).map((item, i) => {
+          const Icon = featureIcons[i] ?? FileEdit;
+          return (
+            <div
+              class={`bg-white p-10 border border-gray-200 rounded-xl ${colorClasses.cardHover} transition-all duration-300 group animate-fade-in opacity-0`}
+              style={`animation-delay: ${i * 50}ms;`}
+              data-animate
+            >
+              <Icon
+                size={40}
+                stroke-width={1.5}
+                class:list={['mb-6', colorClasses.text, 'group-hover:text-white']}
+              />
+              <h3 class="text-xl font-bold mb-4 text-gray-900 group-hover:text-white">
+                {item.titulo}
+              </h3>
+              <p class="text-sm opacity-80 group-hover:opacity-90 text-gray-600 group-hover:text-white/90">
+                {item.descripcion ?? 'Servicio incluido dentro del alcance definido.'}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-16 lg:py-24 bg-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 transform translate-x-20" aria-hidden="true" />
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <h2 class="font-display text-4xl font-black mb-16 tracking-tight text-gray-900">
+        ¿Qué beneficios aporta a su empresa?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {beneficios.slice(0, 4).map((b, i) => {
+          const Icon = benefitIcons[i] ?? Eye;
+          return (
+            <div
+              class="flex gap-6 p-8 bg-gray-50 rounded-2xl border border-gray-200 animate-fade-in opacity-0"
+              style={`animation-delay: ${i * 80}ms;`}
+              data-animate
+            >
+              <div class="size-14 rounded-full bg-accent flex items-center justify-center shrink-0 text-gray-800">
+                <Icon size={28} stroke-width={1.5} />
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2 text-gray-900">{b.titulo}</h4>
+                <p class="text-gray-600 text-sm leading-relaxed">{b.descripcion}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach & Target -->
+  <section class="py-16 lg:py-24 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="bg-gray-50 rounded-3xl p-12 relative border border-gray-200 overflow-hidden">
+            <div class="absolute -top-10 -right-10 size-40 bg-primary/5 rounded-full" aria-hidden="true" />
+            <h2 class="font-display text-3xl font-bold mb-8 italic text-gray-900">
+              Nuestro enfoque
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed mb-10">
+              La tecnología no reemplaza el criterio profesional. <span class="text-primary font-bold">Lo fortalece.</span>
+            </p>
+            {enfoqueBar && (
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div class="size-2 bg-primary rounded-full shrink-0" />
+                  <p class="font-mono text-xs uppercase font-bold text-gray-500">{enfoqueBar.human}</p>
+                  <div class="flex-1 h-px bg-gray-200" />
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="size-2 bg-accent rounded-full shrink-0" />
+                  <p class="font-mono text-xs uppercase font-bold text-gray-500">{enfoqueBar.tech}</p>
+                  <div class="flex-1 h-px bg-gray-200" />
+                </div>
+              </div>
+            )}
+            {!enfoqueBar && enfoque.length > 0 && (
+              <div class="space-y-4">
+                {enfoque.map((p) => (
+                  <p class="text-gray-600 leading-relaxed">{p}</p>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <span class="font-mono text-primary text-xs uppercase tracking-widest block mb-4">
+            TARGET_PROFILE
+          </span>
+          <h2 class="font-display text-4xl font-black mb-8 text-gray-900">
+            ¿Para quién es este servicio?
+          </h2>
+          <ul class="space-y-6">
+            {paraQuien.map((p) => (
+              <li class="flex items-start gap-4">
+                <CheckCircle2 size={24} stroke-width={2} class={`shrink-0 mt-0.5 ${colorClasses.text}`} />
+                <span class="text-lg text-gray-700">{p.texto}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <div class="mb-12 inline-flex items-center justify-center size-20 rounded-full bg-primary/10">
+        <Handshake size={40} stroke-width={1.5} class="text-primary" />
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-8 tracking-tight text-gray-900">
+        {ctaTitulo}
+      </h2>
+      <p class="text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+        {ctaDescripcion}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a
+          href={contactoHref}
+          data-booking
+          class={`inline-flex items-center justify-center gap-2 ${colorClasses.btnBg} text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 shadow-xl hover:shadow-[0_8px_24px_rgba(0,71,171,0.25)] no-underline`}
+        >
+          <Calendar size={20} stroke-width={2} />
+          {ctaBtnPrimario}
+        </a>
+        <a
+          href={contactoHref}
+          class="inline-flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 px-10 py-5 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all duration-300 no-underline"
+        >
+          {ctaBtnSecundario}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
