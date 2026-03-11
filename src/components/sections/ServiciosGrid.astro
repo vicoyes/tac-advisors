@@ -235,10 +235,7 @@ const servicios = [
               height="260"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-gray-50 via-gray-50/20 to-transparent" aria-hidden="true" />
-            <div class:list={[
-              'absolute top-3 left-3 w-10 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-md',
-              s.color === 'accent' ? 'bg-accent/90 text-white' : 'bg-primary/90 text-white'
-            ]}>
+            <div class="absolute top-3 left-3 w-10 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-md bg-primary/90 text-white">
               <s.icon size={20} stroke-width={1.5} />
             </div>
           </div>
@@ -246,10 +243,7 @@ const servicios = [
           <div class="p-6 pt-3 flex flex-col flex-1">
             <div class="mb-3">
               <h3 class="text-lg font-bold text-gray-900 leading-snug">{s.titulo}</h3>
-              <p class:list={[
-                'text-xs font-semibold uppercase tracking-wider mt-0.5',
-                s.color === 'accent' ? 'text-accent' : 'text-primary'
-              ]}>{s.subtitulo}</p>
+              <p class="text-xs font-semibold uppercase tracking-wider mt-0.5 text-primary">{s.subtitulo}</p>
             </div>
 
             <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
@@ -259,14 +253,7 @@ const servicios = [
             <div class="space-y-2 mb-4">
               {s.puntos.map((p) => (
                 <div class="flex items-start gap-2">
-                  <CheckCircle2
-                    size={16}
-                    stroke-width={2}
-                    class:list={[
-                      'shrink-0 mt-0.5',
-                      s.color === 'accent' ? 'text-accent' : 'text-primary'
-                    ]}
-                  />
+                  <CheckCircle2 size={16} stroke-width={2} class="shrink-0 mt-0.5 text-primary" />
                   <span class="text-sm text-gray-600">{p}</span>
                 </div>
               ))}
@@ -274,13 +261,10 @@ const servicios = [
 
             <a
               href={withBase(`servicios/${s.id}/`)}
-              class:list={[
-                'mt-auto inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-300 no-underline',
-                s.color === 'accent' ? 'text-accent hover:text-accent-hover' : 'text-primary hover:text-primary-hover'
-              ]}
+              class="mt-auto inline-flex items-center justify-center gap-2 w-full sm:w-auto text-sm font-bold py-3 px-5 rounded-lg bg-primary text-white hover:bg-primary-hover hover:shadow-[0_4px_12px_rgba(0,71,171,0.35)] transition-all duration-300 no-underline"
             >
               Ver detalle del servicio
-              <ArrowRight size={16} stroke-width={2} />
+              <ArrowRight size={18} stroke-width={2} />
             </a>
           </div>
         </div>
