@@ -72,11 +72,11 @@ const solucionesHref = withBase('soluciones/');
         </button>
         <div
           id="soluciones-dropdown"
-          class="absolute top-full left-0 pt-1 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50"
+          class="absolute top-full left-1/2 -translate-x-1/2 pt-1 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50"
           role="menu"
           aria-label="Menú de soluciones"
         >
-          <div class="w-[32rem] bg-white rounded-xl shadow-lg border border-gray-100 py-2 overflow-hidden">
+          <div class="w-[44rem] max-w-[calc(100vw-2rem)] bg-white rounded-xl shadow-lg border border-gray-100 py-2 overflow-hidden">
             <a
               href={solucionesHref}
               class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors duration-200 no-underline group/link"
@@ -89,7 +89,7 @@ const solucionesHref = withBase('soluciones/');
               <ArrowRight size={14} class="ml-auto text-gray-400 group-hover/link:text-primary group-hover/link:translate-x-0.5 transition-all" />
             </a>
             <div class="border-t border-gray-100 my-2" />
-            <div class="grid grid-cols-2 gap-x-4 gap-y-0.5 px-3 py-1 max-h-[70vh] overflow-y-auto">
+            <div class="grid grid-cols-2 min-[700px]:grid-cols-3 gap-x-3 gap-y-0.5 px-3 py-1 max-h-[70vh] overflow-y-auto">
               {solucionesItems.map((item) => (
                 <a
                   href={withBase(`servicios/${item.id}/`)}
