@@ -62,8 +62,8 @@ const solucionesHref = withBase('soluciones/');
           con mayor seguridad.
         </p>
 
-        <div
-          class="flex flex-wrap gap-4
+<div
+          class="flex flex-col sm:flex-row flex-wrap gap-4 w-full
                  animate-fade-in opacity-0"
           style="animation-delay: 300ms;"
           data-animate
@@ -71,7 +71,7 @@ const solucionesHref = withBase('soluciones/');
           <a
             href={contactoHref}
             data-booking
-            class="inline-flex items-center justify-center gap-2
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2
                    bg-gradient-to-br from-accent to-accent-hover
                    text-white font-semibold text-base
                    px-6 py-3 rounded-lg
@@ -84,7 +84,7 @@ const solucionesHref = withBase('soluciones/');
           </a>
           <a
             href={solucionesHref}
-            class="inline-flex items-center justify-center gap-2
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2
                    bg-transparent text-primary font-semibold text-base
                    border-2 border-primary
                    px-6 py-3 rounded-md
@@ -98,7 +98,7 @@ const solucionesHref = withBase('soluciones/');
       </div>
 
       <div
-        class="hidden lg:block animate-slide-in-right opacity-0"
+        class="animate-slide-in-right opacity-0"
         style="animation-delay: 400ms;"
         data-animate
       >
