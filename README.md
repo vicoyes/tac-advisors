@@ -1,29 +1,59 @@
-# Astro Starter Kit: Minimal
+# TAC ADVISORS
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Unidad de Inteligencia Financiera. Transformamos su contabilidad tradicional en infraestructura de decisiones estratégicas.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 🚀 Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Framework:** Astro 6.0.2 (Static Site Generator)
+- **Styling:** Tailwind CSS 4.2.1
+- **Icons:** Lucide Astro
+- **SEO:** Astro Sitemap
+- **Node:** >=22.12.0
+
+---
+
+## 👥 Team
+
+### Technical Team
+
+| Role | Name | GitHub |
+|------|------|--------|
+| **CTO / Lead Architect** | FORGE | [weavewes](https://github.com/weavewes) |
+
+**FORGE** — Chief Technology Officer
+- Technical architecture and system design
+- Code quality and infrastructure decisions
+- Security posture and production reliability
+- Technology stack optimization
+
+---
+
+## 🏗️ Project Structure
 
 ```text
 /
-├── public/
+├── public/              # Static assets (images, favicon)
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/
+│   │   ├── layout/      # Header, Footer
+│   │   ├── sections/    # Page sections (Hero, Servicios, etc.)
+│   │   └── ui/          # Reusable UI components (BookingModal)
+│   ├── layouts/         # Layout templates (BaseLayout, ServicioDetailLayout)
+│   ├── pages/           # Route pages
+│   │   ├── index.astro (Home)
+│   │   ├── soluciones.astro
+│   │   ├── metodologia.astro
+│   │   ├── recursos.astro
+│   │   ├── contacto.astro
+│   │   └── servicios/   # Individual service pages
+│   ├── styles/          # Global CSS (Tailwind)
+│   └── utils/           # Utility functions
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+---
 
 ## 🧞 Commands
 
@@ -38,6 +68,51 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📋 Navigation Structure
+
+- **Home** — Manifesto y propuesta de valor
+- **Soluciones** — Catálogo de servicios (12 servicios principales)
+  - Outsourcing Contable
+  - Asesoría Tributaria y Planeación Fiscal
+  - Gestión de Nómina y Prestaciones
+  - Facturación Electrónica DIAN
+  - Estados Financieros e Interpretación
+  - NIIF para PyMEs 2027
+  - Revisoría Fiscal
+  - Análisis Financiero Estratégico
+  - Constitución de Empresa
+  - Optimización y Modernización de Procesos
+  - Auditoría y Aseguramiento
+- **Metodología** — El método TAC ADVISORS
+- **Recursos** — Blog, insights y recursos educativos
+- **Contacto** — Formulario de calificación y booking
+
+---
+
+## 🔧 Development Setup
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/vicoyes/tac-advisors.git
+   cd tac-advisors
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Start development server:
+   ```sh
+   npm run dev
+   ```
+
+4. Open [http://localhost:4321](http://localhost:4321) in your browser.
+
+---
+
+## 📝 License
+
+Proprietary — © TAC ADVISORS
