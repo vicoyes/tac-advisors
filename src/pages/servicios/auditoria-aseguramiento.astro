@@ -1,0 +1,49 @@
+---
+import ServicioDetailLayout from '../../layouts/ServicioDetailLayout.astro';
+---
+
+<ServicioDetailLayout
+  titulo="Auditoría"
+  tituloItalico="y Aseguramiento."
+  subtitulo="Auditoría Financiera y Servicios de Aseguramiento"
+  badgeLabel="Audit & Assurance // V2.0"
+  descripcionCorta="Verificación independiente bajo estándares profesionales internacionales que genera confianza y valor agregado más allá de la opinión técnica."
+  imagen="https://images.unsplash.com/photo-1551288049-bebda4e38d71?w=700&h=500&fit=crop&q=80"
+  imgAlt="Auditor revisando reportes financieros en reunión de trabajo"
+  color="primary"
+  heroQuote={{
+    label: 'CORE_VALUE_PROPOSITION',
+    text: 'La confianza de sus stakeholders se construye con información verificable, no con promesas.',
+  }}
+  intro="La auditoría no es un filtro de cumplimiento: es un mecanismo de verificación que fortalece la credibilidad de su información financiera frente a inversionistas, entidades financieras, socios y autoridades regulatorias."
+  enQueConsiste={[
+    'Realizamos trabajos de auditoría y aseguramiento bajo estándares profesionales internacionales, deliverando informes que generan confianza y proporcionan valor más allá de la simple opinión técnica.',
+    'Nuestro enfoque combina rigor metodológico con una perspectiva de mejora continua, identificando no solo hallazgos sino también oportunidades concretas para fortalecer sus controles internos.',
+  ]}
+  queIncluye={[
+    { titulo: 'Auditoría de estados financieros', descripcion: 'Verificación independiente bajo normas de auditoría generalmente aceptadas con opinión sobre fiabilidad.' },
+    { titulo: 'Revisión de controles internos', descripcion: 'Evaluación de la efectividad de los sistemas de control interno que protegen sus activos.' },
+    { titulo: 'Auditoría operativa y de procesos', descripcion: 'Análisis de eficiencia y efectividad en operaciones, identificando redundancias y cuellos de botella.' },
+    { titulo: 'Procedimientos convenidos', descripcion: 'Trabajos de aseguramiento sobre áreas específicas de la información financiera según necesidades del cliente.' },
+    { titulo: 'Cumplimiento normativo sectorial', descripcion: 'Verificación de adherencia a regulaciones específicas del sector: superintendencias y requisitos de industria.' },
+    { titulo: 'Informes con valor agregado', descripcion: 'Documentos que van más allá de la opinión técnica, incluyendo observaciones y recomendaciones estratégicas.' },
+  ]}
+  beneficios={[
+    { titulo: 'Credibilidad con terceros', descripcion: 'Un informe de auditoría independiente que valida la calidad de su información financiera.' },
+    { titulo: 'Fortalecimiento de controles', descripcion: 'Hallazgos y recomendaciones que mejoran la eficiencia operativa y reducen riesgos de fraude.' },
+    { titulo: 'Cumplimiento regulatorio', descripcion: 'Verificación objetiva de que su empresa cumple con los requisitos de auditoría externa establecidos.' },
+    { titulo: 'Identificación de riesgos ocultos', descripcion: 'Descubrimiento de exposiciones financieras u operativas no visibles sin evaluación independiente.' },
+  ]}
+  paraQuien={[
+    { texto: 'Empresas que por ley requieren auditoría externa de estados financieros.' },
+    { texto: 'Compañías que buscan financiamiento y necesitan estados financieros auditados para bancos.' },
+    { texto: 'Startups en proceso de fundraising que requieren due diligence financiero verificable.' },
+    { texto: 'Empresas familiares en transición generacional que necesitan valuación objetiva de su patrimonio.' },
+  ]}
+  enfoque={[]}
+  enfoqueBar={{ human: 'Human Expertise 70%', tech: 'Tech Automation 30%' }}
+  ctaTitulo="Transforme la verificación en una herramienta de credibilidad"
+  ctaDescripcion="Solicite una auditoría o revisión especial y descubra cómo nuestro enfoque genera valor más allá del informe técnico."
+  ctaBtnPrimario="Solicitar auditoría"
+  ctaBtnSecundario="Hablar con un asesor"
+/>

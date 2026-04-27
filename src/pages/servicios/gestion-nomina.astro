@@ -1,0 +1,49 @@
+---
+import ServicioDetailLayout from '../../layouts/ServicioDetailLayout.astro';
+---
+
+<ServicioDetailLayout
+  titulo="Gestión"
+  tituloItalico="de Nómina."
+  subtitulo="Gestión Integral de Nómina y Compensaciones"
+  badgeLabel="Payroll Excellence // V2.0"
+  descripcionCorta="Precisión en cada pago, cumplimiento en cada período. Gestión integral de nómina que garantiza que cada colaborador reciba exactamente lo que le corresponde."
+  imagen="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=700&h=500&fit=crop&q=80"
+  imgAlt="Equipo de recursos humanos procesando nómina en ambiente corporativo moderno"
+  color="primary"
+  heroQuote={{
+    label: 'CORE_VALUE_PROPOSITION',
+    text: 'Sus colaboradores confían en que su nómina es correcta. Nosotros nos aseguramos de que siempre lo sea.',
+  }}
+  intro="La gestión de nómina es uno de los procesos más críticos y sensibles de cualquier organización: un error afecta directamente el bolsillo de sus colaboradores y la tranquilidad de su empresa. Nuestro servicio integral cubre desde el cálculo hasta la liquidación de todas las obligaciones laborales."
+  enQueConsiste={[
+    'Implementamos controles de calidad automatizados que detectan inconsistencias antes de la generación de pagos,为您提供 reportes detallados para decisiones sobre estructura salarial y proyecciones de compensaciones.',
+    'Garantizamos precisión absoluta y cumplimiento total con la normatividad colombiana en cada liquidación, sin excepciones.',
+  ]}
+  queIncluye={[
+    { titulo: 'Cálculo y procesamiento de nómina', descripcion: 'Liquidación mensual con todos los componentes: básico, horas extras, dominicales, recargos y bonificaciones.' },
+    { titulo: 'Liquidación de prestaciones sociales', descripcion: 'Cálculo preciso de cesantías, intereses sobre cesantías, vacaciones y beneficios de ley con provisión mensual.' },
+    { titulo: 'Aportes parafiscales y de seguridad social', descripcion: 'Gestión de aportes a EPS, AFP, ICBF, SENA y Caja de Compensación con validación de bases.' },
+    { titulo: 'Gestión de liquidaciones finales', descripcion: 'Cálculo de indemnizaciones, vacaciones pendientes y acreencias laborales en casos de retiro.' },
+    { titulo: 'Nómina de contratos especiales', descripcion: 'Procesamiento diferenciado para aprendices SENA, pasantes y figuras contractuales especiales.' },
+    { titulo: 'Reportes y certificación', descripcion: 'Certificaciones laborales, certificates de ingresos y reportes de costos laborales para gerencia.' },
+  ]}
+  beneficios={[
+    { titulo: 'Cero errores en pagos', descripcion: 'Validación múltiple que garantiza que cada colaborador reciba exactamente lo que le corresponde.' },
+    { titulo: 'Cumplimiento laboral impecable', descripcion: 'Liquidaciones siempre alineadas con la normatividad vigente, protegidas contra sanciones.' },
+    { titulo: 'Información clara para el colaborador', descripcion: 'Comprobantes de pago detallados que eliminan dudas y reducen consultas sobre salarios.' },
+    { titulo: 'Visibilidad de costos laborales', descripcion: 'Reportes que permiten planificar estructura salarial, incrementos y proyecciones de personal.' },
+  ]}
+  paraQuien={[
+    { texto: 'Empresas que buscan delegar la complejidad de la gestión de nómina en expertos sin perder control.' },
+    { texto: 'Startups y PyMEs que están creciendo en personal y necesitan escalar su gestión con precisión.' },
+    { texto: 'Compañías con alto volumen de nómina que requieren eficiencia operativa y reducción de errores manuales.' },
+    { texto: 'Negocios con estructuras laborales complejas: múltiples contratos, dominicales, horas extras o comisiones.' },
+  ]}
+  enfoque={[]}
+  enfoqueBar={{ human: 'Human Expertise 65%', tech: 'Tech Automation 35%' }}
+  ctaTitulo="Precisión en cada pago. Confianza en cada período."
+  ctaDescripcion="Transformemos su gestión de nómina en un proceso preciso, transparente y que genera confianza en sus colaboradores."
+  ctaBtnPrimario="Solicitar gestión de nómina"
+  ctaBtnSecundario="Hablar con un asesor"
+/>
