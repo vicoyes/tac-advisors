@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/paths';
+import { ArrowRight, Target, Zap, ShieldCheck, BrainCircuit, CheckCircle2 } from 'lucide-astro';
+
+const contactoHref = withBase('contacto/');
+const serviciosHref = withBase('servicios/');
+
+const servicios = [
+  {
+    title: 'Contabilidad y reportes financieros',
+    description: 'Información confiable, oportuna y alineada con normas vigentes.',
+  },
+  {
+    title: 'Impuestos y planeación tributaria',
+    description: 'Estrategia fiscal que optimiza cargas y reduce riesgos.',
+  },
+  {
+    title: 'Nómina y liquidación',
+    description: 'Procesamiento preciso y compliant con la normativa laboral vigente.',
+  },
+  {
+    title: 'Consultoría y asesoría empresarial',
+    description: 'Acompañamiento en decisiones operativas y estratégicas.',
+  },
+];
+
+const diferenciadores = [
+  {
+    icon: BrainCircuit,
+    title: 'Inteligencia sobre ejecución mecánica',
+    description: 'No entregamos números. Entregamos información que permite actuar. Nuestra diferencia es la capacidad de interpretar los datos desde la perspectiva de quien toma decisiones.',
+  },
+  {
+    icon: Target,
+    title: 'Visión GPS, no espejo retrovisor',
+    description: 'Mientras otros servicios contables se limitan a reportar lo que ya ocurrió, nosotros usamos esa información para anticipar escenarios, identificar riesgos y señalar oportunidades antes de que se presenten.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Rigor sin complejidad',
+    description: 'La calidad técnica de un equipo especializado, comunicada con claridad. Sin jerga innecesaria, sin informes de 40 páginas que nadie lee.',
+  },
+  {
+    icon: Zap,
+    title: 'Propuesta de valor clara',
+    description: 'Somos un aliado estratégico accesible: la capacidad analítica de un equipo especializado, con la atención y personalización de quienes trabajan con un número controlado de clientes.',
+  },
+];
+
+const etapas = [
+  {
+    numero: '01',
+    title: 'Diagnóstico preciso',
+    description: 'Entendemos la estructura, los números y el contexto real de cada organización.',
+  },
+  {
+    numero: '02',
+    title: 'Construcción de inteligencia',
+    description: 'Procesamos, analizamos y traducimos la información contable y tributaria en datos accionables.',
+  },
+  {
+    numero: '03',
+    title: 'Acompañamiento en decisiones',
+    description: 'Presentamos recomendaciones con claridad, para que el empresario o directivo tenga elementos concretos para actuar.',
+  },
+];
+---
+
+<BaseLayout
+  title="Quiénes Somos — TAC ADVISORS"
+  description="TAC ADVISORS es una Unidad de Inteligencia Financiera que acompaña a organizaciones y empresarios en cada decisión que exige rigor técnico, claridad fiscal y visión estratégica."
+>
+  <!-- Hero -->
+  <section class="relative pt-6 pb-20 lg:py-28 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+    <div
+      class="absolute inset-0 opacity-[0.03]"
+      style="background-image: radial-gradient(circle, #0047AB 1px, transparent 1px); background-size: 32px 32px;"
+      aria-hidden="true"
+    />
+    <div
+      class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-br from-primary/5 to-accent/5 [clip-path:polygon(100%_0,100%_100%,0_100%,20%_0)]"
+      aria-hidden="true"
+    />
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p
+            class="text-sm font-semibold text-accent uppercase tracking-widest mb-4 animate-fade-in opacity-0"
+            data-animate
+          >
+            Quiénes Somos
+          </p>
+
+          <h1
+            class="font-display text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 animate-fade-in opacity-0"
+            style="animation-delay: 100ms;"
+            data-animate
+          >
+            Del dato preciso.<br />
+            <span class="text-primary">Decisiones estratégicas.</span>
+          </h1>
+
+          <p
+            class="text-lg lg:text-xl text-gray-600 leading-relaxed mb-6 max-w-xl animate-fade-in opacity-0"
+            style="animation-delay: 200ms;"
+            data-animate
+          >
+            No hacemos únicamente contabilidad. Construimos inteligencia financiera que convierte números en dirección.
+          </p>
+
+          <p
+            class="text-base text-gray-500 leading-relaxed mb-8 max-w-xl animate-fade-in opacity-0"
+            style="animation-delay: 250ms;"
+            data-animate
+          >
+            La mayoría de las empresas miran hacia atrás para entender su negocio. En TAC ADVISORS miramos hacia adelante. Somos una <strong class="text-gray-800">Unidad de Inteligencia Financiera</strong> que acompaña a organizaciones y empresarios en cada decisión que exige rigor técnico, claridad fiscal y visión estratégica.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row flex-wrap gap-4 animate-fade-in opacity-0"
+            style="animation-delay: 300ms;"
+            data-animate
+          >
+            <a
+              href={contactoHref}
+              data-booking
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-br from-accent to-accent-hover text-white font-semibold text-base px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              Hablemos de su próximo movimiento
+              <ArrowRight size={18} stroke-width={2} />
+            </a>
+            <a
+              href={serviciosHref}
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent text-primary font-semibold text-base border-2 border-primary px-6 py-3 rounded-md transition-all duration-300 ease-in-out hover:bg-primary/5 hover:border-primary-hover hover:text-primary-hover"
+            >
+              Ver servicios
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="relative animate-slide-in-right opacity-0"
+          style="animation-delay: 400ms;"
+          data-animate
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=640&h=520&fit=crop&q=80"
+            alt="Equipo de TAC ADVISORS en reunión estratégica"
+            class="rounded-2xl object-cover w-full h-[420px] shadow-xl"
+            loading="eager"
+            width="640"
+            height="420"
+          />
+          <div class="absolute -bottom-5 -left-5 bg-white border-2 border-accent rounded-xl p-4 shadow-lg">
+            <p class="text-xs text-gray-500 font-mono uppercase tracking-wider mb-1">Claim de marca</p>
+            <p class="text-lg font-bold text-primary font-mono">Del Dato a la Decisión</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué hacemos -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in opacity-0" data-animate>
+        <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
+          Qué hacemos
+        </p>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          Servicios que sostienen la operación
+          <span class="text-accent">y el crecimiento</span>
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Cada servicio se ejecuta con rigor técnico y enfoque en los resultados que el cliente necesita, no en el proceso por el proceso.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {servicios.map((s, i) => (
+          <div
+            class="relative bg-gray-50 border border-gray-100 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30 animate-fade-in opacity-0"
+            style={`animation-delay: ${i * 100}ms`}
+            data-animate
+          >
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <CheckCircle2 size={20} stroke-width={1.5} class="text-primary" />
+            </div>
+            <h3 class="text-base font-bold text-gray-900 mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{s.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciadores -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in opacity-0" data-animate>
+        <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-4">
+          Diferenciadores
+        </p>
+        <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          ¿Por qué elegir
+          <span class="text-accent">TAC ADVISORS?</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {diferenciadores.map((d, i) => (
+          <div
+            class="relative bg-white border-2 border-gray-200 rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30 animate-fade-in opacity-0"
+            style={`animation-delay: ${i * 100}ms`}
+            data-animate
+          >
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <d.icon size={26} stroke-width={1.5} class="text-primary" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{d.title}</h3>
+            <p class="text-base text-gray-600 leading-relaxed">{d.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo lo hacemos -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Contenido -->
+        <div class="animate-fade-in opacity-0" data-animate>
+          <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
+            Cómo lo hacemos
+          </p>
+          <h2 class="font-display text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+            Un método con
+            <span class="text-accent">tres etapas</span>
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-10">
+            Cada proyecto recibe atención técnica directa, sin capas de intermediarios que diluyan la calidad del trabajo.
+          </p>
+
+          <div class="space-y-8">
+            {etapas.map((e, i) => (
+              <div class="relative pl-10 border-l-2 border-gray-200 hover:border-accent transition-colors duration-300">
+                <span class="absolute left-0 top-0 -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white text-xs font-bold font-mono flex items-center justify-center">
+                  {e.numero}
+                </span>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{e.title}</h3>
+                <p class="text-base text-gray-600 leading-relaxed">{e.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Imagen + nota -->
+        <div class="relative animate-slide-in-right opacity-0" data-animate>
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&h=480&fit=crop&q=80"
+            alt="Análisis de datos financieros con apoyo de inteligencia artificial"
+            class="rounded-2xl object-cover w-full h-[420px] shadow-xl"
+            loading="lazy"
+            width="640"
+            height="480"
+          />
+          <div class="absolute -bottom-5 -right-5 bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
+            <p class="text-xs text-gray-500 font-mono uppercase tracking-wider mb-1">Enfoque</p>
+            <p class="text-lg font-bold text-primary font-mono">75% Rigor + 25% Innovación</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Propuesta de valor / Cierre -->
+  <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white relative overflow-hidden">
+    <div
+      class="absolute inset-0 opacity-5"
+      style="background-image: linear-gradient(90deg, transparent 95%, rgba(0,212,170,0.4) 95%); background-size: 60px 60px;"
+      aria-hidden="true"
+    />
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-accent/5 blur-3xl"
+      aria-hidden="true"
+    />
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center animate-fade-in opacity-0" data-animate>
+      <div class="w-16 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-10" />
+
+      <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight mb-6">
+        TAC ADVISORS no es un proveedor de servicios contables.
+      </h2>
+
+      <p class="text-lg lg:text-xl text-gray-300 leading-relaxed mb-4 max-w-2xl mx-auto">
+        Es una <strong class="text-accent">unidad de inteligencia financiera</strong> que trabaja junto a empresas y empresarios para que cada decisión tenga fundamento, cada obligación se cumpla con confianza, y cada oportunidad se identifique a tiempo.
+      </p>
+
+      <p class="text-base text-gray-400 leading-relaxed mb-10 max-w-xl mx-auto">
+        Somos la diferencia entre saber lo que pasó y <strong class="text-white">saber qué hacer después.</strong>
+      </p>
+
+      <div class="w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-10" />
+
+      <p class="text-sm font-semibold text-accent uppercase tracking-widest mb-6">
+        ¿Listo para ver su negocio con otra perspectiva?
+      </p>
+
+      <a
+        href={contactoHref}
+        data-booking
+        class="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-accent to-accent-hover text-white font-semibold text-base px-8 py-4 rounded-lg transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_16px_rgba(0,212,170,0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        Coordine una reunión
+        <ArrowRight size={18} stroke-width={2} />
+      </a>
+
+      <p class="text-xs text-gray-500 mt-4">
+        Cuéntenos su situación. Le mostramos qué es posible.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
