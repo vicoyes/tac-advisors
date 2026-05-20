@@ -29,6 +29,11 @@ const contactInfo = [
                                      animate-fade-in opacity-0"
           data-animate
           novalidate>
+      <div class="hidden" aria-hidden="true">
+        <label for="website">Sitio web</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div class="space-y-5">
         {contactInfo.map(({ id, label, type, placeholder, required }) => (
           <div class="flex flex-col gap-1.5">
@@ -97,7 +102,7 @@ const contactInfo = [
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const entries = Object.fromEntries(data.entries());
@@ -108,6 +113,8 @@ const contactInfo = [
     }
 
     const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalButton = btn.innerHTML;
+
     btn.disabled = true;
     btn.innerHTML = `
       <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
@@ -117,7 +124,24 @@ const contactInfo = [
       Enviando...
     `;
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(entries),
+      });
+
+      const result = await response.json().catch(() => ({
+        message: "No pudimos procesar la respuesta del servidor.",
+      }));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "No pudimos enviar la solicitud.");
+      }
+
       form.innerHTML = `
         <div class="text-center py-10">
           <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 mb-6">
@@ -138,6 +162,14 @@ const contactInfo = [
           </p>
         </div>
       `;
-    }, 1500);
+    } catch (error) {
+      const message = error instanceof Error
+        ? error.message
+        : "No pudimos enviar la solicitud. Intente nuevamente.";
+
+      alert(message);
+      btn.disabled = false;
+      btn.innerHTML = originalButton;
+    }
   });
 </script>
