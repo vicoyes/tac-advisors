@@ -7,8 +7,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vicoyes.github.io',
-  base: '/tac-advisors',
+  site: 'https://tacadvisors.com.co',
+  base: '/',
   trailingSlash: 'always',
   build: {
     format: 'directory'
