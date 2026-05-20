@@ -29,6 +29,22 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Create SMTP config
+        run: |
+          cat > dist/api/smtp-config.php <<'PHP'
+          <?php
+          return [
+              'host' => 'smtp.hostinger.com',
+              'port' => 465,
+              'encryption' => 'ssl',
+              'username' => 'info@tacadvisors.com.co',
+              'password' => '${{ secrets.HOSTINGER_SMTP_PASSWORD }}',
+              'from_email' => 'info@tacadvisors.com.co',
+              'from_name' => 'TAC ADVISORS',
+              'to_email' => 'info@tacadvisors.com.co',
+          ];
+          PHP
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
