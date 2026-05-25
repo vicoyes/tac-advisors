@@ -57,7 +57,9 @@ const contactoHref = withBase('contacto/');
 
         <a
           href={contactoHref}
-          data-booking
+          data-cal-link="tacadvisors/30min"
+        data-cal-namespace="30min"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
           class="inline-flex items-center gap-2 text-primary font-semibold text-base transition-all duration-300 hover:gap-3"
         >
           Solicitar diagnóstico financiero

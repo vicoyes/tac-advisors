@@ -162,7 +162,9 @@ const colorClasses =
           <div class="flex flex-wrap gap-4 pt-2">
             <a
               href={contactoHref}
-              data-booking
+              data-cal-link="tacadvisors/30min"
+        data-cal-namespace="30min"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
               class="inline-flex items-center gap-3 bg-gray-800 text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-900 transition-all duration-300 group no-underline"
             >
               {ctaBtnPrimario}
@@ -372,7 +374,9 @@ const colorClasses =
       <div class="flex flex-col sm:flex-row gap-6 justify-center">
         <a
           href={contactoHref}
-          data-booking
+          data-cal-link="tacadvisors/30min"
+        data-cal-namespace="30min"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
           class={`inline-flex items-center justify-center gap-2 ${colorClasses.btnBg} text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 shadow-xl hover:shadow-[0_8px_24px_rgba(0,71,171,0.25)] no-underline`}
         >
           <Calendar size={20} stroke-width={2} />
